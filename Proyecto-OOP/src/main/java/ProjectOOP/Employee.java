@@ -50,4 +50,5 @@ public class Employee {
     public void setSeniority(String seniority) {
         this.seniority = seniority;
     }
+
 }
