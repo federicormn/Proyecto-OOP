@@ -2,7 +2,8 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class TestCase extends TestSuite {
+public class TestCase
+{
     private String title;
     private Enum priority;
     private String description;
