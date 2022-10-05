@@ -7,6 +7,8 @@ public class TestSuite {
     private String sprint;
     private List<TestCase> testCases;
 
+    private List<ExecutedTest> executedTests;
+
     public TestSuite(){}
 
 
@@ -33,5 +35,13 @@ public class TestSuite {
 
     public void setTestCases(List<TestCase> testCases) {
         this.testCases = testCases;
+    }
+
+    public List<ExecutedTest> getExecutedTests() {
+        return executedTests;
+    }
+
+    public void setExecutedTests(List<ExecutedTest> executedTests) {
+        this.executedTests = executedTests;
     }
 }
