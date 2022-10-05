@@ -2,7 +2,7 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class Bug extends Employee {
+public class Bug extends Ticket {
     private String expectedResult;
 
     public Bug(){
