@@ -2,19 +2,17 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class ExecutedTest
-{
+public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
     private Bug associatedBug;
     private TestSuite assignedSuit;
     private enum state{PENDING, PASSED, FAILED, BLOCKED};
 
-    public ExecutedTest()
-    {
+    public ExecutedTest() {
 
     }
-
+    // Getters & Setters
     public String getBuild() {
         return build;
     }

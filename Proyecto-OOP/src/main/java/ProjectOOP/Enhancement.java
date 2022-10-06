@@ -5,7 +5,9 @@ public class Enhancement extends Ticket {
 
     public Enhancement(){}
 
+    // Getters & Setters
     public String getSuggestedResult() {
+
         return suggestedResult;
     }
 

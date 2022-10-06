@@ -8,11 +8,8 @@ public class Bug extends Ticket {
     public Bug(){
     }
 
-    public List<Bug> showBySeverity(){
 
-        return null;
-    }
-
+    // Getters & Setters
     public String getExpectedResult() {
         return expectedResult;
     }
