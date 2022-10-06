@@ -1,6 +1,7 @@
 package ProjectOOP;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestSuite {
     private String title;
@@ -10,6 +11,25 @@ public class TestSuite {
     private List<ExecutedTest> executedTests;
 
     public TestSuite(){}
+
+    // Se desea tener un método donde me muestre los test cases creados por un específico QA
+    public List<TestCase> showByQA(int id){
+        List<TestCase> createdByQA = testCases.stream()
+                .filter(tc -> tc.getCreator().getId() == id).collect(Collectors.toList());
+        return createdByQA;
+    }
+
+    public List<Bug> showBySeverity(){
+// filtrar lista ExecutedTest
+        return null;
+    }
+
+    // Se desea tener los test cases que tienen una prioridad en específico
+    public List<TestCase> showByPriority(TestCasePriority priority){
+        List<TestCase> filteredTestCases = testCases.stream()
+                .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
+        return filteredTestCases;
+    }
 
 
     // Getters & Setters

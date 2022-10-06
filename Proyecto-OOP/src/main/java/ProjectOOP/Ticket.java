@@ -6,11 +6,13 @@ public class Ticket
 {
     protected String title;
     protected String description;
-    protected enum priority {HIGH, MEDIUM, LOW};
-    protected enum severity{Low, Minor, Major, Critical};
+    protected enum priority {LOW, MEDIUM, HIGH};
+    protected enum severity {LOW, MINOR, MAJOR, CRITICAL};
     protected List<Step> steps;
     protected String actualResult;
     protected Employee reporter;
+
+    protected Employee assignedTo;
 
     //Constructor
     public Ticket()
@@ -34,6 +36,7 @@ public class Ticket
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public List<Step> getSteps() {
         return steps;

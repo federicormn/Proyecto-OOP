@@ -11,6 +11,7 @@ public class Employee {
 
     }
 
+    // Getters & Setters
     public String getName() {
         return name;
     }

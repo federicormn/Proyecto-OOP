@@ -15,7 +15,7 @@ public class ExecutedTest extends TestCase
     {
 
     }
-
+    // Getters & Setters
     public String getBuild() {
         return build;
     }

@@ -2,25 +2,31 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class TestCase
-{
+enum TestCasePriority {HIGH, MEDIUM, LOW};
+
+public class TestCase {
     private String title;
-    private enum priority {HIGH, MEDIUM, LOW}
+
     private String description;
     private List<Step> steps;
-    private String creator;
+    private QA creator;
 
+    private TestCasePriority priority;
     // Classes
-    public TestCase(){}
-    public List<TestCase> showByPriority(){
 
-        return null;
-    }
-    public List<TestCase> showByQA(){
-        return null;
-    }
+    public TestCase(){}
 
     // Getters & Setters
+
+    public TestCasePriority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(TestCasePriority priority) {
+        this.priority = priority;
+    }
+
+
     public String getTitle() {
         return title;
     }
@@ -28,6 +34,7 @@ public class TestCase
     public void setTitle(String title) {
         this.title = title;
     }
+
 
     public String getDescription() {
         return description;
@@ -45,14 +52,11 @@ public class TestCase
         this.steps = steps;
     }
 
-    public String getCreator() {
+    public QA getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public void setCreator(QA creator) {
         this.creator = creator;
     }
-
-
-
 }
