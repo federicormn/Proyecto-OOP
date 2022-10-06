@@ -65,23 +65,33 @@ public class ExecutedTest extends TestCase
         return retorno;
     }
 
-    public ExecutedTest filterByState(TestSuite suite)
-    {
-        return null;
+        public ExecutedTest filterByState(TestSuite suite)
+        {
+            return null;
+        }
+
+        public state getCurrentState()
+        {
+            return currentState;
+        }
+
+        public void setCurrentState(state currentState)
+        {
+            this.currentState = currentState;
     }
 
-    public state getCurrentState()
-    {
-        return currentState;
-    }
-
-    public void setCurrentState(state currentState)
-    {
-        this.currentState = currentState;
-    }
-
-    public String getCurrentStateString()
+        public String getCurrentStateString()
     {
         return currentState.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "ExecutedTest{" +
+                "build='" + build + '\'' +
+                ", owner=" + owner +
+                ", associatedBug=" + associatedBug +
+                ", assignedSuit=" + assignedSuit +
+                '}';
     }
 }

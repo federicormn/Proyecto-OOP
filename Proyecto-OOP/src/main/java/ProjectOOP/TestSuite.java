@@ -59,12 +59,20 @@ public class TestSuite {
             switch(singleTest.getCurrentStateString())
             {
                 case "PENDING":
+                    System.out.println("PENDING:");
+                    System.out.println(singleTest.toString());
                     break;
                 case "PASSED":
+                    System.out.println("PASSED");
+                    System.out.println(singleTest.toString());
                     break;
                 case "FAILED":
+                    System.out.println("FAILED");
+                    System.out.println(singleTest.toString());
                     break;
                 case "BLOCKED":
+                    System.out.println("BLOCKED");
+                    System.out.println(singleTest.toString());
                     break;
 
             }
