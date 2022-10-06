@@ -41,7 +41,35 @@ public class TestSuite {
         return executedTests;
     }
 
-    public void setExecutedTests(List<ExecutedTest> executedTests) {
+    public void setExecutedTests(List<ExecutedTest> executedTests)
+    {
         this.executedTests = executedTests;
+    }
+
+    public int showExecutedTestByState()
+    {
+        int retorno = -1;
+        for ( ExecutedTest singleTest : executedTests)
+        {
+            if(singleTest.getCurrentStateString() == "PENDING")
+            {
+
+            }
+
+            switch(singleTest.getCurrentStateString())
+            {
+                case "PENDING":
+                    break;
+                case "PASSED":
+                    break;
+                case "FAILED":
+                    break;
+                case "BLOCKED":
+                    break;
+
+            }
+
+        }
+        return retorno;
     }
 }

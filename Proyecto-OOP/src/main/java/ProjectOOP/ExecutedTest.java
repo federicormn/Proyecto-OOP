@@ -2,13 +2,14 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class ExecutedTest
+public class ExecutedTest extends TestCase
 {
     private String build;
     private Employee owner;
     private Bug associatedBug;
     private TestSuite assignedSuit;
     private enum state{PENDING, PASSED, FAILED, BLOCKED};
+    private state currentState = state.PENDING;
 
     public ExecutedTest()
     {
@@ -47,24 +48,40 @@ public class ExecutedTest
         this.assignedSuit = assignedSuit;
     }
 
-    public List<ExecutedTest> showByState(TestSuite suite)
+ // Punto 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
+    public int showByState(TestSuite suite)
     {
-        List<ExecutedTest> pending;
-        List<ExecutedTest> passed;
-        List<ExecutedTest> failed;
-        List<ExecutedTest> blocked;
+        int retorno = -1;
+
         state example = state.FAILED;
 
-        for (ExecutedTest executedTests: suite.getExecutedTests())
+
+
+        for (state testState: state.values())
         {
 
         }
 
-        return null;
+        return retorno;
     }
 
     public ExecutedTest filterByState(TestSuite suite)
     {
         return null;
+    }
+
+    public state getCurrentState()
+    {
+        return currentState;
+    }
+
+    public void setCurrentState(state currentState)
+    {
+        this.currentState = currentState;
+    }
+
+    public String getCurrentStateString()
+    {
+        return currentState.toString();
     }
 }

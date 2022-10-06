@@ -5,7 +5,7 @@ import java.util.List;
 public class TestCase
 {
     private String title;
-    private Enum priority;
+    private enum priority {HIGH, MEDIUM, LOW}
     private String description;
     private List<Step> steps;
     private String creator;
@@ -27,14 +27,6 @@ public class TestCase
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Enum getPriority() {
-        return priority;
-    }
-
-    public void setPriority(Enum priority) {
-        this.priority = priority;
     }
 
     public String getDescription() {
@@ -60,4 +52,7 @@ public class TestCase
     public void setCreator(String creator) {
         this.creator = creator;
     }
+
+
+
 }
