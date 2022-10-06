@@ -6,16 +6,16 @@ public class Ticket
 {
     protected String title;
     protected String description;
-    protected enum priority {HIGH, MEDIUM, LOW};
-    protected int severity;
+    protected enum priority {LOW, MEDIUM, HIGH};
+    protected enum severity {LOW, MINOR, MAJOR, CRITICAL};
     protected List<Step> steps;
     protected String actualResult;
     protected Employee reporter;
 
-    //Constructor
-    public Ticket()
-    {
+    protected Employee assignedTo;
 
+    //Constructor
+    public Ticket() {
     }
 
     //Getters & Setters
@@ -35,13 +35,6 @@ public class Ticket
         this.description = description;
     }
 
-    public int getSeverity() {
-        return severity;
-    }
-
-    public void setSeverity(int severity) {
-        this.severity = severity;
-    }
 
     public List<Step> getSteps() {
         return steps;
