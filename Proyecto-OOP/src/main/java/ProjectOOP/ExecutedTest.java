@@ -48,33 +48,10 @@ public class ExecutedTest extends TestCase
         this.assignedSuit = assignedSuit;
     }
 
- // Punto 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
-    public int showByState(TestSuite suite)
-    {
-        int retorno = -1;
-
-        state example = state.FAILED;
-
-
-
-        for (state testState: state.values())
-        {
-
-        }
-
-        return retorno;
-    }
-
-        public ExecutedTest filterByState(TestSuite suite)
-        {
-            return null;
-        }
-
-        public state getCurrentState()
+    public state getCurrentState()
         {
             return currentState;
         }
-
         public void setCurrentState(state currentState)
         {
             this.currentState = currentState;

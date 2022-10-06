@@ -46,6 +46,7 @@ public class TestSuite {
         this.executedTests = executedTests;
     }
 
+    // Punto 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
     public int showExecutedTestByState()
     {
         int retorno = -1;
