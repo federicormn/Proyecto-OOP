@@ -2,17 +2,28 @@ package ProjectOOP;
 
 import java.util.List;
 
+enum Severity {LOW, MINOR, MAJOR, CRITICAL}
+
 public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
-    private Bug associatedBug;
+    protected Bug associatedBug;
+    public Severity severity;
     private TestSuite assignedSuit;
-    private enum state{PENDING, PASSED, FAILED, BLOCKED};
+    protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     public ExecutedTest() {
 
     }
     // Getters & Setters
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
     public String getBuild() {
         return build;
     }

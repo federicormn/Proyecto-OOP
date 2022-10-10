@@ -1,8 +1,9 @@
 package ProjectOOP;
 
+import javax.xml.transform.stream.StreamSource;
 import java.util.List;
 
-enum TestCasePriority {HIGH, MEDIUM, LOW};
+enum TestCasePriority {HIGH, MEDIUM, LOW}
 
 public class TestCase {
     private String title;
@@ -11,7 +12,7 @@ public class TestCase {
     private List<Step> steps;
     private QA creator;
 
-    private TestCasePriority priority;
+    protected TestCasePriority priority;
     // Classes
 
     public TestCase(){}

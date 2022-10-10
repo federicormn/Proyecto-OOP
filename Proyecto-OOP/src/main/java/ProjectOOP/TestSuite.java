@@ -12,19 +12,16 @@ public class TestSuite {
 
     public TestSuite(){}
 
-    // Se desea tener un método donde me muestre los test cases creados por un específico QA
-    public List<TestCase> showByQA(int id){
-        List<TestCase> createdByQA = testCases.stream()
-                .filter(tc -> tc.getCreator().getId() == id).collect(Collectors.toList());
-        return createdByQA;
+
+    // Se desea tener los bugs que tienen una severidad específica, filtrar lista ExecutedTest
+    public List<ExecutedTest> showBySeverity(Severity severity){
+
+        List<ExecutedTest> bugsBySeverity = executedTests.stream()
+                .filter(tc -> tc.getSeverity() == severity).collect(Collectors.toList());
+           return bugsBySeverity;
     }
 
-    public List<Bug> showBySeverity(){
-// filtrar lista ExecutedTest
-        return null;
-    }
-
-    // Se desea tener los test cases que tienen una prioridad en específico
+    // 3) Se desea tener los test cases que tienen una prioridad en específico
     public List<TestCase> showByPriority(TestCasePriority priority){
         List<TestCase> filteredTestCases = testCases.stream()
                 .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
