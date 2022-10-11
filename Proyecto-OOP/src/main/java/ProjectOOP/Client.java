@@ -88,7 +88,7 @@ public class Client {
 
 
         tc2.setTitle("test case 2");
-        tc2.setCreator(qa1);
+        tc2.setCreator(qa2);
         tc2.setPriority(TestCasePriority.HIGH);
         tc2.setDescription("asdasdasd");
 
@@ -172,9 +172,9 @@ public class Client {
         System.out.println(dev2.getId());
 
         System.out.println("****** TCs *******");
-        System.out.println(tc1.getCreator());
-        System.out.println(tc2.getCreator());
-        System.out.println(tc3.getCreator());
+        System.out.println(tc1.getCreator().getName());
+        System.out.println(tc2.getCreator().getName());
+        System.out.println(tc3.getCreator().getName());
 
         System.out.println("****** BUGs *******");
         System.out.println(bug1.getExpectedResult());
