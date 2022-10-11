@@ -2,20 +2,29 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class ExecutedTest extends TestCase
-{
+enum Severity {LOW, MINOR, MAJOR, CRITICAL}
+
+public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
-    private Bug associatedBug;
+    protected Bug associatedBug;
+    public Severity severity;
     private TestSuite assignedSuit;
-    private enum state{PENDING, PASSED, FAILED, BLOCKED};
-    private state currentState = state.PENDING;
+    protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     public ExecutedTest()
     {
 
     }
     // Getters & Setters
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
     public String getBuild() {
         return build;
     }
@@ -48,19 +57,7 @@ public class ExecutedTest extends TestCase
         this.assignedSuit = assignedSuit;
     }
 
-    public state getCurrentState()
-        {
-            return currentState;
-        }
-        public void setCurrentState(state currentState)
-        {
-            this.currentState = currentState;
-    }
 
-        public String getCurrentStateString()
-    {
-        return currentState.toString();
-    }
 
     @Override
     public String toString() {
