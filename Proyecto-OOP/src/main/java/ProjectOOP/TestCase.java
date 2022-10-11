@@ -31,7 +31,7 @@ public class TestCase {
         return priority;
     }
 
-    public void setPriority(TestCasePriority riority) {
+    public void setPriority(TestCasePriority priority) {
         this.priority = priority;
     }
 
@@ -70,5 +70,10 @@ public class TestCase {
 
     public void setCreator(QA creator) {
         this.creator = creator;
+    }
+
+    public void addStep(Step oneStep, List<Step> steps)
+    {
+        this.steps.add(oneStep);
     }
 }
