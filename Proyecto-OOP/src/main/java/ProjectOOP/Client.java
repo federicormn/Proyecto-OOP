@@ -7,9 +7,12 @@ public class Client {
 
     public static void main(String[]args)
     {
-        TestSuite suitePrueba = new TestSuite();
+
 
         //INSTANCES ********************************************
+
+        TestSuite suitePrueba = new TestSuite();
+
         QA qa1 = new QA();
         QA qa2 = new QA();
 
@@ -26,6 +29,7 @@ public class Client {
         Enhancement enhancement1 = new Enhancement();
 
         //SETTING ********************************************
+
         //QAs inputs
         qa1.setId(1);
         qa1.setName("Fede");
@@ -34,11 +38,11 @@ public class Client {
         qa1.setSeniority("junior");
 
 
-        qa1.setId(2);
-        qa1.setName("Ema");
-        qa1.setLastname("Ditzel");
-        qa1.setPhoneNumber(123124);
-        qa1.setSeniority("senior");
+        qa2.setId(2);
+        qa2.setName("Ema");
+        qa2.setLastname("Ditzel");
+        qa2.setPhoneNumber(123124);
+        qa2.setSeniority("senior");
 
         //DEVs inputs
         dev1.setId(3);
@@ -47,10 +51,10 @@ public class Client {
         dev1.setPhoneNumber(321321);
 
 
-        dev1.setId(4);
-        dev1.setName("asdf");
-        dev1.setLastname("dsaf");
-        dev1.setPhoneNumber(231321);
+        dev2.setId(4);
+        dev2.setName("asdf");
+        dev2.setLastname("dsaf");
+        dev2.setPhoneNumber(231321);
 
 
         //TCs inputs
@@ -133,6 +137,11 @@ public class Client {
         enhancement1.setSuggestedResult("algorovich");
         enhancement1.setReporter(qa1);
 
+        //TEST SUIT inputs
+        suitePrueba.setSprint("Sprint 1");
+        suitePrueba.setTitle("Suite 1");
+        //suitePrueba.setTestCases();
+
 
         //OUTPUTS ********************************************
 
@@ -151,7 +160,28 @@ public class Client {
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
         //suitePrueba.showExecutedTestByState();
 
+        System.out.println("****** SUITE *******");
+        System.out.println(suitePrueba.getSprint());
 
+        System.out.println("****** QAs *******");
+        System.out.println(qa1.getId());
+        System.out.println(qa2.getId());
+
+        System.out.println("****** DEVs *******");
+        System.out.println(dev1.getId());
+        System.out.println(dev2.getId());
+
+        System.out.println("****** TCs *******");
+        System.out.println(tc1.getCreator());
+        System.out.println(tc2.getCreator());
+        System.out.println(tc3.getCreator());
+
+        System.out.println("****** BUGs *******");
+        System.out.println(bug1.getExpectedResult());
+        System.out.println(bug2.getExpectedResult());
+
+        System.out.println("****** ENHs *******");
+        System.out.println(enhancement1.getSuggestedResult());
 
 
     }
