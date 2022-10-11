@@ -69,10 +69,6 @@ public class TestSuite {
         int retorno = -1;
         for ( ExecutedTest singleTest : executedTests)
         {
-            if(singleTest.getCurrentStateString() == "PENDING")
-            {
-
-            }
 
             switch(singleTest.getCurrentStateString())
             {

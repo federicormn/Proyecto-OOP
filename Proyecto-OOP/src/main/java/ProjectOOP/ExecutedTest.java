@@ -12,6 +12,7 @@ public class ExecutedTest extends TestCase{
     private TestSuite assignedSuit;
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
+    protected state currentState = state.PENDING;
     public ExecutedTest()
     {
 
@@ -57,7 +58,18 @@ public class ExecutedTest extends TestCase{
         this.assignedSuit = assignedSuit;
     }
 
+    public state getCurrentState() {
+        return currentState;
+    }
 
+    public void setCurrentState(state currentState) {
+        this.currentState = currentState;
+    }
+
+    public String getCurrentStateString()
+    {
+        return currentState.toString();
+    }
 
     @Override
     public String toString() {
