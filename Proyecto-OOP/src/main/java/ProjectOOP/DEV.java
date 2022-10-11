@@ -3,19 +3,21 @@ package ProjectOOP;
 import java.util.List;
 
 public class DEV extends Employee {
-        private String expectedResult;
+        private List<Bug> associatedBugs;
 
         public DEV(){
         }
 
 
     // Getters & Setters
-    public String getExpectedResult() {
-        return expectedResult;
+    public List<Bug> getAssociatedBugs()
+    {
+        return associatedBugs;
     }
 
-    public void setExpectedResult(String expectedResult) {
-        this.expectedResult = expectedResult;
+    public void setAssociatedBugs(List<Bug> associatedBugs)
+    {
+        this.associatedBugs = associatedBugs;
     }
 }
 
