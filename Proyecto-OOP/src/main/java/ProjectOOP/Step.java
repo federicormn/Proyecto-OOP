@@ -5,7 +5,11 @@ public class Step
     private String description;
     private String expectedResult;
 
-    public Step(){}
+    public Step(String description, String expectedResult)
+    {
+        this.description = description;
+        this.expectedResult = expectedResult;
+    }
 
     // Getters & Setters
 

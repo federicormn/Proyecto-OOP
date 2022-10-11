@@ -15,6 +15,7 @@ public class ExecutedTest extends TestCase{
     protected state currentState = state.PENDING;
     public ExecutedTest()
     {
+        super();
 
     }
     // Getters & Setters

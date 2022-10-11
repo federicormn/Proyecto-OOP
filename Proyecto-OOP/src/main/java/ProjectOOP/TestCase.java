@@ -11,11 +11,19 @@ public class TestCase {
     private String description;
     private List<Step> steps;
     private QA creator;
-
     protected TestCasePriority priority;
+
+    int amountSteps;
+
     // Classes
 
-    public TestCase(){}
+    //Construct. con amountSteps parametrizado
+    public TestCase(int amountSteps){}
+
+    //Construct. sin parametros
+    public TestCase() {
+
+    }
 
     // Getters & Setters
 
@@ -23,7 +31,7 @@ public class TestCase {
         return priority;
     }
 
-    public void setPriority(TestCasePriority priority) {
+    public void setPriority(TestCasePriority riority) {
         this.priority = priority;
     }
 
@@ -49,8 +57,11 @@ public class TestCase {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
+    public List<Step> setSteps(int amountSteps)
+    {
         this.steps = steps;
+
+        return steps;
     }
 
     public QA getCreator() {
