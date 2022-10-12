@@ -66,11 +66,11 @@ public class ExecutedTest extends TestCase{
     @Override
     public String toString()
     {
-        return "ExecutedTest{" +
+        return "ExecutedTest {" +
                 "build='" + build + '\'' +
-                ", owner=" + owner +
+                ", owner=" + owner.getName() +
                 ", associatedBug=" + associatedBug +
-                ", assignedSuit=" + assignedSuit +
+                ", assignedSuit=" + assignedSuit.getTitle() +
                 '}';
     }
 
