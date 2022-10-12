@@ -5,14 +5,26 @@ import java.util.List;
 public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
-    private Bug associatedBug;
+    protected Bug associatedBug;
+    public Severity severity;
     private TestSuite assignedSuit;
-    private enum state{PENDING, PASSED, FAILED, BLOCKED};
+    protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
-    public ExecutedTest() {
+    protected state currentState = state.PENDING;
+    public ExecutedTest() //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
+    {
+        super();
 
     }
     // Getters & Setters
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Severity severity) {
+        this.severity = severity;
+    }
     public String getBuild() {
         return build;
     }
@@ -45,24 +57,33 @@ public class ExecutedTest extends TestCase{
         this.assignedSuit = assignedSuit;
     }
 
-    public List<ExecutedTest> showByState(TestSuite suite)
-    {
-        List<ExecutedTest> pending;
-        List<ExecutedTest> passed;
-        List<ExecutedTest> failed;
-        List<ExecutedTest> blocked;
-        state example = state.FAILED;
-
-        for (ExecutedTest executedTests: suite.getExecutedTests())
-        {
-
-        }
-
-        return null;
+    public state getCurrentState() {
+        return currentState;
     }
 
-    public ExecutedTest filterByState(TestSuite suite)
+    public void setCurrentState(state currentState) {
+        this.currentState = currentState;
+    }
+
+    public String getCurrentStateString()
     {
-        return null;
+        return currentState.toString();
+    }
+
+    @Override
+    public String toString()
+    {
+        return "ExecutedTest{" +
+                "build='" + build + '\'' +
+                ", owner=" + owner +
+                ", associatedBug=" + associatedBug +
+                ", assignedSuit=" + assignedSuit +
+                '}';
+    }
+
+    public void executeTestCase(TestCase oneTestCase)
+    {
+        //super.
+
     }
 }

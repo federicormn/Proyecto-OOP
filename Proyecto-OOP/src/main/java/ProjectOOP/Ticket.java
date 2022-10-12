@@ -2,23 +2,26 @@ package ProjectOOP;
 
 import java.util.List;
 
+
 public class Ticket
 {
     protected String title;
     protected String description;
-    protected enum priority {LOW, MEDIUM, HIGH};
-    protected enum severity {LOW, MINOR, MAJOR, CRITICAL};
+    protected enum Priority {LOW, MEDIUM, HIGH};
+
+
     protected List<Step> steps;
     protected String actualResult;
     protected Employee reporter;
 
-    protected Employee assignedTo;
-
     //Constructor
-    public Ticket() {
+    public Ticket()
+    {
+
     }
 
     //Getters & Setters
+
     public String getTitle() {
         return title;
     }
