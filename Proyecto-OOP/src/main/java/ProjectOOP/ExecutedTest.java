@@ -6,25 +6,22 @@ public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
     protected Bug associatedBug;
-    public Severity severity;
     private TestSuite assignedSuit;
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     protected state currentState = state.PENDING;
-    public ExecutedTest() //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
+    public ExecutedTest(TestCase oneTestCase)
     {
-        super();
+        executed = true;
+        setTitle(oneTestCase.getTitle());
+        setDescription(oneTestCase.getDescription());
+        setSteps(oneTestCase.getSteps());
+        setCreator(oneTestCase.getCreator());
+        setPriority(oneTestCase.getPriority());
 
     }
+
     // Getters & Setters
-
-    public Severity getSeverity() {
-        return severity;
-    }
-
-    public void setSeverity(Severity severity) {
-        this.severity = severity;
-    }
     public String getBuild() {
         return build;
     }
@@ -53,7 +50,9 @@ public class ExecutedTest extends TestCase{
         return assignedSuit;
     }
 
-    public void setAssignedSuit(TestSuite assignedSuit) {
+    public void setAssignedSuit(TestSuite assignedSuit)
+    {
+        assignedSuit.addExecutedTestCase(this); // ?¿?¿
         this.assignedSuit = assignedSuit;
     }
 
@@ -71,19 +70,56 @@ public class ExecutedTest extends TestCase{
     }
 
     @Override
-    public String toString()
-    {
-        return "ExecutedTest{" +
-                "build='" + build + '\'' +
-                ", owner=" + owner +
-                ", associatedBug=" + associatedBug +
-                ", assignedSuit=" + assignedSuit +
-                '}';
+    public String toString() {
+
+        String executedString = null;
+        String bug = null;
+        String suite = null;
+
+            executedString = this.getTitle()+ "{" +
+                    "build='" + build + '\'' +
+                    ", owner=" + owner.getName();
+            if(associatedBug != null)
+            {
+                bug = ", associatedBug=" + associatedBug.getTitle();
+            }else
+            {
+                bug = ", no associated bugs, ";
+            }
+            if(assignedSuit != null)
+            {
+                suite = ", assignedSuit=" + assignedSuit.getTitle() + '}';
+            }else
+            {
+                suite = ", no associated suite.";
+            }
+//            executedString.concat(bug);
+//            executedString.concat(suite);
+
+        return executedString+bug+suite;
     }
 
-    public void executeTestCase(TestCase oneTestCase)
-    {
-        //super.
-
-    }
+//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner, Bug linkedBug, String state)
+//    {
+//        oneTest.setBuild(build);
+//        oneTest.setOwner(owner);
+//
+//        switch (state)
+//        {
+//            case "PASSED":
+//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
+//                break;
+//            case "FAILED":
+//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
+//                break;
+//            case "BLOCKED":
+//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
+//                break;
+//        }
+//        if(oneTest.getCurrentState().toString() == "FAILED")
+//        {
+//            oneTest.setAssociatedBug(linkedBug);
+//        }
+//
+//    }
 }

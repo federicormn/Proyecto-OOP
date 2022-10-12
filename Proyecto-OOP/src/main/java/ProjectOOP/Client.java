@@ -9,7 +9,7 @@ public class Client {
     {
 
 
-        //INSTANCES ********************************************
+        //**************************************** INSTANCES ********************************************
 
         TestSuite suitePrueba = new TestSuite();
         List<Bug> createdBugs = new ArrayList<Bug>(); //AUXILIAR LIST FOR CREATED BUGS
@@ -24,12 +24,16 @@ public class Client {
         TestCase tc2 = new TestCase(2);
         TestCase tc3 = new TestCase(4);
 
+
+//        ExecutedTest exec2 = new ExecutedTest(tc2);
+//        ExecutedTest exec3 = new ExecutedTest(tc3);
+
         Bug bug1 = new Bug();
         Bug bug2 = new Bug();
 
         Enhancement enhancement1 = new Enhancement();
 
-        //SETTING ********************************************
+        //**************************************** SETTING INPUTS ****************************************
 
         //QAs inputs
         qa1.setId(1);
@@ -47,7 +51,7 @@ public class Client {
 
         //DEVs inputs
         dev1.setId(3);
-        dev1.setName("asd");
+        dev1.setName("Ema");
         dev1.setLastname("dsa");
         dev1.setPhoneNumber(321321);
 
@@ -68,25 +72,9 @@ public class Client {
         Step TC1_step2 = new Step("asd2","asd2");
         Step TC1_step3 = new Step("asd3","asd3");
 
-//        tc1.addStep(TC1_step1, tc1.getSteps());
-//        tc1.addStep(TC1_step2, tc1.getSteps());
-//        tc1.addStep(TC1_step3, tc1.getSteps());
-
-////        tc1.setSteps(tc1.amountSteps);
-////        {
-////
-////            List<Step> stepsList = new ArrayList<>();
-//            Step step1 = new Step("asd","asd");
-//            Step step2 = new Step("asd2","asd2");
-//            Step step3 = new Step("asd3","asd3");
-//
-//            stepsList.add(step1);
-//            stepsList.add(step2);
-//            stepsList.add(step3);
-//
-//            return stepsList;
-//        }
-
+        tc1.addStep(TC1_step1, tc1.getSteps()); //
+        tc1.addStep(TC1_step2, tc1.getSteps()); //Crear un step aux, pasar x param. los valores y agregarlo a la List*
+        tc1.addStep(TC1_step3, tc1.getSteps());
 
         tc2.setTitle("test case 2");
         tc2.setCreator(qa2);
@@ -96,23 +84,46 @@ public class Client {
         Step TC2_step1 = new Step("asd","asd");
         Step TC2_step2 = new Step("asd2","asd2");
 
-//        tc2.addStep(TC2_step1, tc1.getSteps());
-//        tc2.addStep(TC2_step2, tc1.getSteps());
+        tc2.addStep(TC2_step1, tc1.getSteps()); //Crear un step aux, pasar x param. los valores y agregarlo a la List*
+        tc2.addStep(TC2_step2, tc1.getSteps());
 
         tc3.setTitle("test case 3");
         tc3.setCreator(qa1);
         tc3.setPriority(TestCasePriority.HIGH);
         tc3.setDescription("asdasdasd3");
 
-        Step TC3_step1 = new Step("asd","asd");
+        Step TC3_step1 = new Step("asd","asd"); // SACAR EL TAMAÑO DE LA LISTA DE PASOS PARA LOS TC
         Step TC3_step2 = new Step("asd2","asd2");
         Step TC3_step3 = new Step("asd3","asd3");
         Step TC3_step4 = new Step("asd4","asd4");
 
-//        tc3.addStep(TC3_step1, tc1.getSteps());
-//        tc3.addStep(TC3_step2, tc1.getSteps());
-//        tc3.addStep(TC3_step3, tc1.getSteps());
-//        tc3.addStep(TC3_step4, tc1.getSteps());
+        tc3.addStep(TC3_step1, tc1.getSteps()); //Crear un step aux, pasar x param. los valores y agregarlo a la List*
+        tc3.addStep(TC3_step2, tc1.getSteps());
+        tc3.addStep(TC3_step3, tc1.getSteps());
+        tc3.addStep(TC3_step4, tc1.getSteps());
+
+        ExecutedTest exec1 = new ExecutedTest(tc1); // QUE INSTANCIE EL TEST SUIT
+        ExecutedTest exec2 = new ExecutedTest(tc2);
+        ExecutedTest exec3 = new ExecutedTest(tc3);
+
+        //Executed TCs inputs
+        exec1.setBuild("Version 1.0");
+        exec1.setAssignedSuit(suitePrueba);
+        exec1.setOwner(qa1);
+        //exec1.setAssociatedBug(); // IF currentState == FAILED; // LLAMAR AL SETTER EN SetCurrentState == FAILED?¿?¿
+        exec1.setCurrentState(ExecutedTest.state.PASSED);
+
+        exec2.setBuild("Version 2.0");
+        exec2.setAssignedSuit(suitePrueba);
+        exec2.setOwner(qa2);
+        exec2.setCurrentState(ExecutedTest.state.BLOCKED);
+
+        exec3.setBuild("Version 3.0");
+        exec3.setAssignedSuit(suitePrueba);
+        exec3.setOwner(qa1);
+        exec3.setCurrentState(ExecutedTest.state.FAILED);
+        exec3.setAssociatedBug(bug1);
+
 
         //BUGs inputs
         bug1.setExpectedResult("algo");
@@ -122,7 +133,7 @@ public class Client {
         bug1.setSteps(tc1.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
         bug1.setTitle("titulo bug 1");
         bug1.setAssignedTo(dev1);
-        bug1.setSeverity(Severity.MAJOR);
+        bug1.setSeverity(Severity.MINOR);
         bug1.addBugToList(createdBugs);
 
         bug2.setExpectedResult("algo2");
@@ -152,15 +163,16 @@ public class Client {
         suitePrueba.addTestCase(tc2);
         suitePrueba.addTestCase(tc3);
 
-        //OUTPUTS ********************************************
+        //**************************************** OUTPUTS ********************************************
+
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
-        qa1.showByQA(qa1.getId());
+        qa1.showByQA();
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
-        System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
-        dev1.assignedBugsToDev(dev1.getId());
+        System.out.println("\nBugs asignados al dev " + dev2.getName()+ ":");
+        dev2.assignedBugsToDev();
 
         // 3) Se desea tener los test cases que tienen una prioridad en específico
         suitePrueba.showByPriority(TestCasePriority.HIGH);
@@ -171,41 +183,9 @@ public class Client {
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
 
-        System.out.println("\nCantidad de Failed/Passed/Blocked para la test suit "+ suitePrueba.getTitle()+ ":");
-        if(suitePrueba.showExecutedTestByState() == 0)
-        {
-            System.out.println("no se rompió.");
-        }else {
-            System.out.println("se rompio.");
-            System.out.println(suitePrueba.showExecutedTestByState());
-        };
+        System.out.println("\nCantidad de Failed/Passed/Blocked para el test suit '"+ suitePrueba.getTitle()+ "':");
+        suitePrueba.showExecutedTestByState();
 
-        // END OUTPUTS ********************************************
-
-        System.out.println("\n\n\nMUESTREO\n\n");
-        System.out.println("****** SUITE *******");
-        System.out.println(suitePrueba.getSprint());
-
-        System.out.println("****** QAs *******");
-        System.out.println(qa1.getId());
-        System.out.println(qa2.getId());
-
-        System.out.println("****** DEVs *******");
-        System.out.println(dev1.getId());
-        System.out.println(dev2.getId());
-
-        System.out.println("****** TCs *******");
-        System.out.println("Dir. de mem. del TC1: "+tc1.getCreator());
-        System.out.println(tc2.getCreator().getName());
-        System.out.println(tc3.getCreator().getName());
-
-        System.out.println("****** BUGs *******");
-        System.out.println(bug1.getExpectedResult());
-        System.out.println(bug2.getExpectedResult());
-
-        System.out.println("****** ENHs *******");
-        System.out.println(enhancement1.getSuggestedResult());
-
-
+        //******************************************** END OUTPUTS ********************************************
     }
 }
