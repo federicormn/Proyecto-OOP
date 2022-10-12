@@ -7,11 +7,12 @@ enum TestCasePriority {HIGH, MEDIUM, LOW}
 
 public class TestCase {
     private String title;
-
     private String description;
     private List<Step> steps;
     private QA creator;
     protected TestCasePriority priority;
+
+    boolean executed = false;
 
     int amountSteps;
 

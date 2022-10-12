@@ -24,6 +24,10 @@ public class Client {
         TestCase tc2 = new TestCase(2);
         TestCase tc3 = new TestCase(4);
 
+        ExecutedTest exec1 = new ExecutedTest(tc1);
+        ExecutedTest exec2 = new ExecutedTest(tc2);
+        ExecutedTest exec3 = new ExecutedTest(tc3);
+
         Bug bug1 = new Bug();
         Bug bug2 = new Bug();
 
@@ -113,6 +117,25 @@ public class Client {
 //        tc3.addStep(TC3_step2, tc1.getSteps());
 //        tc3.addStep(TC3_step3, tc1.getSteps());
 //        tc3.addStep(TC3_step4, tc1.getSteps());
+
+        //Executed TCs inputs
+        exec1.setBuild("Version 1.0");
+        exec1.setAssignedSuit(suitePrueba);
+        exec1.setOwner(qa1);
+        //exec1.setAssociatedBug(); // IF currentState == FAILED; // LLAMAR AL SETTER EN SetCurrentState == FAILED?¿?¿
+        exec1.setCurrentState(ExecutedTest.state.PASSED);
+
+        exec2.setBuild("Version 2.0");
+        exec2.setAssignedSuit(suitePrueba);
+        exec2.setOwner(qa2);
+        exec2.setCurrentState(ExecutedTest.state.BLOCKED);
+
+        exec3.setBuild("Version 3.0");
+        exec3.setAssignedSuit(suitePrueba);
+        exec3.setOwner(qa1);
+        exec3.setCurrentState(ExecutedTest.state.FAILED);
+        exec3.setAssociatedBug(bug1);
+
 
         //BUGs inputs
         bug1.setExpectedResult("algo");

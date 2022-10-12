@@ -6,25 +6,16 @@ public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
     protected Bug associatedBug;
-    public Severity severity;
     private TestSuite assignedSuit;
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     protected state currentState = state.PENDING;
-    public ExecutedTest() //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
+    public ExecutedTest(TestCase oneTestCase) //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
     {
-        super();
+        super.executed = true;
 
     }
     // Getters & Setters
-
-    public Severity getSeverity() {
-        return severity;
-    }
-
-    public void setSeverity(Severity severity) {
-        this.severity = severity;
-    }
     public String getBuild() {
         return build;
     }
@@ -53,7 +44,9 @@ public class ExecutedTest extends TestCase{
         return assignedSuit;
     }
 
-    public void setAssignedSuit(TestSuite assignedSuit) {
+    public void setAssignedSuit(TestSuite assignedSuit)
+    {
+        assignedSuit.addExecutedTestCase(this); // ?¿?¿
         this.assignedSuit = assignedSuit;
     }
 
@@ -81,9 +74,9 @@ public class ExecutedTest extends TestCase{
                 '}';
     }
 
-    public void executeTestCase(TestCase oneTestCase)
+    public void executeTestCase(TestCase oneTestCase) // VA AL CONSTRUCTOR ESTO?¿¡?¡?¡
     {
-        //super.
+
 
     }
 }

@@ -14,14 +14,6 @@ public class TestSuite
     public TestSuite(){}
 
 
-    // Se desea tener los bugs que tienen una severidad específica, filtrar lista ExecutedTest
-    public List<ExecutedTest> showBySeverity(Severity severity)
-    {
-            List<ExecutedTest> bugsBySeverity = executedTests.stream()
-                    .filter(tc -> tc.getSeverity() == severity).collect(Collectors.toList());
-            return bugsBySeverity;
-    }
-
     // 3) Se desea tener los test cases que tienen una prioridad en específico
     public List<TestCase> showByPriority(TestCasePriority priority)
     {
@@ -113,6 +105,11 @@ public class TestSuite
     public void addTestCase(TestCase oneTestCase)
     {
         this.testCases.add(oneTestCase);
+    }
+
+    public void addExecutedTestCase(ExecutedTest executedTest)
+    {
+        this.executedTests.add(executedTest);
     }
 
 }
