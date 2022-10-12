@@ -153,7 +153,7 @@ public class Client {
         qa1.showByQA(qa1.getId());
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
-        //dev1.assignedBugsToDev(dev1.getId());
+        dev1.assignedBugsToDev(dev1.getId());
 
         // 3) Se desea tener los test cases que tienen una prioridad en específico
         //suitePrueba.showByPriority(TestCasePriority.HIGH);

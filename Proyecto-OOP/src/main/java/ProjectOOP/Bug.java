@@ -5,6 +5,8 @@ import java.util.List;
 public class Bug extends Ticket {
     private String expectedResult;
 
+    protected Employee assignedTo;
+
     public Bug(){
     }
 

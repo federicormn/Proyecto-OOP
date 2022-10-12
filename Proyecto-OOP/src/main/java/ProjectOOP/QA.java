@@ -18,9 +18,10 @@ public class QA extends Employee {
                 //System.out.println("lista QAs " + createdByQA);
 
                 //ESTO VA EN OTRO METODO DIOS MIO
+                int i = 0;
                 for (TestCase oneTest:createdByQA)
                 {
-                        int i = 0;
+
                         System.out.println(createdByQA.get(i).getDescription());
                         i++;
                         //System.out.println(createdByQA.get(0).getDescription());

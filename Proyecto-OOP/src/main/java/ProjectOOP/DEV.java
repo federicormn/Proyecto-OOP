@@ -1,11 +1,12 @@
 package ProjectOOP;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DEV extends Employee
 {
-        private List<Bug> associatedBugs;
+        private List<Bug> associatedBugs = new ArrayList<Bug>();
 
         public DEV(){
         }
