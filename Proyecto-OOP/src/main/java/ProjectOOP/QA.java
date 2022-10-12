@@ -10,23 +10,12 @@ public class QA extends Employee {
 
         public QA(){
         }
+
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
-        public List<TestCase> showByQA()
-        {
-                List<TestCase> createdByQA = testCases.stream()
+        public List<TestCase> testCasesCreatedByQA() {
+                List<TestCase> filterByQA = testCases.stream()
                         .filter(tc -> tc.getCreator().getId() == this.getId()).collect(Collectors.toList());
-
-                //ESTO VA EN OTRO METODO
-                int i = 0;
-                for (TestCase oneTest:createdByQA)
-                {
-
-                        System.out.println(createdByQA.get(i).getTitle());
-                        i++;
-                        //System.out.println(createdByQA.get(0).getDescription());
-                }
-
-                return createdByQA;
+                return filterByQA;
         }
 
 

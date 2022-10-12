@@ -7,9 +7,7 @@ public class Employee {
     private int phoneNumber;
     private String seniority;
 
-    public Employee(){
-
-    }
+    public Employee(){};
 
     // Getters & Setters
     public String getName() {
