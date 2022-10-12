@@ -164,18 +164,18 @@ public class Client {
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
-        qa1.showByQA(qa1.getId());
+        TestCaseHelper.showTests(qa1.testCasesCreatedByQA());
+
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
         System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
-        dev1.assignedBugsToDev(dev1.getId());
-
+        BugHelper.showBugs(dev1.assignedBugsToDev());
         // 3) Se desea tener los test cases que tienen una prioridad en específico
-        suitePrueba.showByPriority(TestCasePriority.HIGH);
+        TestCaseHelper.filterByPriority(TestCasePriority.HIGH, suitePrueba.getTestCases());
 
         // 4) Se desea tener los bugs que tienen una severidad específica
         System.out.println("\nBugs con severidad " + Severity.MAJOR);
-        bug1.showBySeverity(Severity.MAJOR, createdBugs); // METHOD executeTest() ¿? -- NO AMIGO ARREGLA ESTO
+        BugHelper.filterBySeverity(Severity.MAJOR, createdBugs);
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
 

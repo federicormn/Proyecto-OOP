@@ -24,7 +24,6 @@ public class TestCase {
 
     //Construct. sin parametros
     public TestCase() {
-
     }
 
     // Getters & Setters

@@ -13,26 +13,6 @@ public class TestSuite
 
     public TestSuite(){}
 
-
-    // 3) Se desea tener los test cases que tienen una prioridad en específico
-    public List<TestCase> showByPriority(TestCasePriority priority)
-    {
-        List<TestCase> filteredTestCases = testCases.stream()
-                .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
-        //METER A FUNCION A PARTE
-        int i = 0;
-        System.out.println("Test cases con prioridad "+ priority+ ":");
-        for (TestCase oneTest:filteredTestCases)
-        {
-
-            System.out.println(filteredTestCases.get(i).getDescription());
-            i++;
-            //System.out.println(createdByQA.get(0).getDescription());
-        }
-        return filteredTestCases;
-    }
-
-
     // Getters & Setters
     public String getTitle() {
         return title;

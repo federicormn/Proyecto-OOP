@@ -5,8 +5,7 @@ public class Step
     private String description;
     private String expectedResult;
 
-    public Step(String description, String expectedResult)
-    {
+    public Step(String description, String expectedResult) {
         this.description = description;
         this.expectedResult = expectedResult;
     }
@@ -32,4 +31,3 @@ public class Step
         this.expectedResult = expectedResult;
     }
 }
-

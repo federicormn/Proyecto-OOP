@@ -15,11 +15,7 @@ public class Ticket
     protected Employee reporter;
 
     //Constructor
-    public Ticket()
-    {
-
-    }
-
+    public Ticket(){}
     //Getters & Setters
 
     public String getTitle() {
