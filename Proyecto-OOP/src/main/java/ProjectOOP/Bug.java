@@ -45,6 +45,7 @@ public class Bug extends Ticket {
         this.severity = severity;
     }
 
+    // Se desea tener los bugs que tienen una severidad específica, filtrar lista ExecutedTest --> NO
     public List<Bug> showBySeverity(Severity severity, List<Bug> createdBugs)
     {
         List<Bug> bugsBySeverity = createdBugs.stream()
