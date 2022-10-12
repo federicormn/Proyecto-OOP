@@ -2,19 +2,27 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class ExecutedTest extends TestCase{
+public class ExecutedTest extends TestCase {
     private String build;
     private Employee owner;
     protected Bug associatedBug;
     private TestSuite assignedSuit;
-    protected enum state{PENDING, PASSED, FAILED, BLOCKED};
+
+    protected enum state {PENDING, PASSED, FAILED, BLOCKED}
+
+    ;
 
     protected state currentState = state.PENDING;
-    public ExecutedTest(TestCase oneTestCase) //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
-    {
-        super.executed = true;
 
+    public ExecutedTest(TestCase oneTestCase) {
+        executed = true;
+        setTitle(oneTestCase.getTitle());
+        setDescription(oneTestCase.getDescription());
+        setSteps(oneTestCase.getSteps());
+        setCreator(oneTestCase.getCreator());
+        setPriority(oneTestCase.getPriority());
     }
+
     // Getters & Setters
     public String getBuild() {
         return build;
@@ -44,8 +52,7 @@ public class ExecutedTest extends TestCase{
         return assignedSuit;
     }
 
-    public void setAssignedSuit(TestSuite assignedSuit)
-    {
+    public void setAssignedSuit(TestSuite assignedSuit) {
         assignedSuit.addExecutedTestCase(this); // ?¿?¿
         this.assignedSuit = assignedSuit;
     }
@@ -58,25 +65,33 @@ public class ExecutedTest extends TestCase{
         this.currentState = currentState;
     }
 
-    public String getCurrentStateString()
-    {
+    public String getCurrentStateString() {
         return currentState.toString();
     }
 
     @Override
-    public String toString()
-    {
-        return "ExecutedTest {" +
+    public String toString() {
+
+        String executedString = null;
+        String bug = null;
+        String suite = null;
+
+        executedString = this.getTitle() + "{" +
                 "build='" + build + '\'' +
-                ", owner=" + owner.getName() +
-                ", associatedBug=" + associatedBug +
-                ", assignedSuit=" + assignedSuit.getTitle() +
-                '}';
-    }
+                ", owner=" + owner.getName();
+        if (associatedBug != null) {
+            bug = ", associatedBug=" + associatedBug.getTitle();
+        } else {
+            bug = ", no associated bugs, ";
+        }
+        if (assignedSuit != null) {
+            suite = ", assignedSuit=" + assignedSuit.getTitle() + '}';
+        } else {
+            suite = ", no associated suite.";
+        }
+//            executedString.concat(bug);
+//            executedString.concat(suite);
 
-    public void executeTestCase(TestCase oneTestCase) // VA AL CONSTRUCTOR ESTO?¿¡?¡?¡
-    {
-
-
+        return executedString + bug + suite;
     }
 }

@@ -91,5 +91,5 @@ public class TestSuite
     {
         this.executedTests.add(executedTest);
     }
-
 }
+

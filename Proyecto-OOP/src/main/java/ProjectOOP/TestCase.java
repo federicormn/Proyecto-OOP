@@ -1,6 +1,5 @@
 package ProjectOOP;
 
-import javax.xml.transform.stream.StreamSource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,11 +57,9 @@ public class TestCase {
         return steps;
     }
 
-    public List<Step> setSteps(int amountSteps)
+    public void setSteps(List<Step> steps)
     {
         this.steps = steps;
-
-        return steps;
     }
 
     public QA getCreator()
@@ -72,14 +69,15 @@ public class TestCase {
 
     public void setCreator(QA creator)
     {
-        creator.addCreatedTestCase(this);
-        this.creator = creator;
-    }
 
+        if(creator != null)
+        {
+            creator.addCreatedTestCase(this);
+            this.creator = creator;
+        }
+    }
     public void addStep(Step oneStep, List<Step> steps)
     {
         this.steps.add(oneStep);
     }
-
-
 }
