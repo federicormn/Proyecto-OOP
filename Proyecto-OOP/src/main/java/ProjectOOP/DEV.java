@@ -18,9 +18,9 @@ public class DEV extends Employee
         return associatedBugs;
     }
 
-    public void setAssociatedBugs(List<Bug> associatedBugs)
+    public void setAssociatedBugs(Bug oneBug)
     {
-        this.associatedBugs = associatedBugs;
+        this.associatedBugs.add(oneBug);
     }
 
     public void linkBugs(Bug oneBug)
@@ -32,6 +32,17 @@ public class DEV extends Employee
     public List<Bug> assignedBugsToDev(int id){
         List<Bug> associatedBug = associatedBugs.stream()
                 .filter(tc -> tc.assignedTo.getId() == id).collect(Collectors.toList());
+
+        //System.out.println("Bugs asociados: "+associatedBug);
+        //ESTO TAMPOCO VA ACA - CREAR METODO A PARTE PARA MOSTRAR
+        int i = 0;
+        for (Bug oneBug:associatedBug)
+        {
+
+            System.out.println(associatedBug.get(i).getDescription());
+            i++;
+            //System.out.println(createdByQA.get(0).getDescription());
+        }
         return associatedBug;
     }
 

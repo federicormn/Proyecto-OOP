@@ -2,8 +2,6 @@ package ProjectOOP;
 
 import java.util.List;
 
-enum Severity {LOW, MINOR, MAJOR, CRITICAL}
-
 public class ExecutedTest extends TestCase{
     private String build;
     private Employee owner;
@@ -73,12 +71,19 @@ public class ExecutedTest extends TestCase{
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "ExecutedTest{" +
                 "build='" + build + '\'' +
                 ", owner=" + owner +
                 ", associatedBug=" + associatedBug +
                 ", assignedSuit=" + assignedSuit +
                 '}';
+    }
+
+    public void executeTestCase(TestCase oneTestCase)
+    {
+        //super.
+
     }
 }

@@ -14,8 +14,6 @@ public class Ticket
     protected String actualResult;
     protected Employee reporter;
 
-    protected Employee assignedTo;
-
     //Constructor
     public Ticket()
     {
@@ -23,16 +21,6 @@ public class Ticket
     }
 
     //Getters & Setters
-
-
-
-    public Employee getAssignedTo() {
-        return assignedTo;
-    }
-
-    public void setAssignedTo(Employee assignedTo) {
-        this.assignedTo = assignedTo;
-    }
 
     public String getTitle() {
         return title;

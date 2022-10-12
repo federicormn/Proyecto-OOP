@@ -12,6 +12,7 @@ public class Client {
         //INSTANCES ********************************************
 
         TestSuite suitePrueba = new TestSuite();
+        List<Bug> createdBugs = new ArrayList<Bug>(); //AUXILIAR LIST FOR CREATED BUGS
 
         QA qa1 = new QA();
         QA qa2 = new QA();
@@ -60,7 +61,7 @@ public class Client {
         //TCs inputs
         tc1.setTitle("test case 1");
         tc1.setCreator(qa1);
-        tc1.setPriority(TestCasePriority.HIGH);
+        tc1.setPriority(TestCasePriority.LOW);
         tc1.setDescription("asdasdasd1");
 
         Step TC1_step1 = new Step("asd","asd");
@@ -116,19 +117,23 @@ public class Client {
         //BUGs inputs
         bug1.setExpectedResult("algo");
         bug1.setActualResult("algon't");
-        bug1.setDescription("hola");
+        bug1.setDescription("hola soy el bug 1");
         bug1.setReporter(qa1);
         bug1.setSteps(tc1.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
         bug1.setTitle("titulo bug 1");
         bug1.setAssignedTo(dev1);
+        bug1.setSeverity(Severity.MAJOR);
+        bug1.addBugToList(createdBugs);
 
         bug2.setExpectedResult("algo2");
         bug2.setActualResult("algon't2");
-        bug2.setDescription("hola 2");
+        bug2.setDescription("hola soy el bug 2");
         bug2.setReporter(qa2);
         bug2.setSteps(tc2.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
         bug2.setTitle("titulo bug 2");
         bug2.setAssignedTo(dev2);
+        bug2.setSeverity(Severity.MAJOR);
+        bug2.addBugToList(createdBugs);
 
         //ENHANCEMENT inputs --> DEBE EXISTIR UN TICKET PARA ASOCIAR
         enhancement1.setTitle("algo3");
@@ -148,29 +153,36 @@ public class Client {
         suitePrueba.addTestCase(tc3);
 
         //OUTPUTS ********************************************
-
+        System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
+        System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
         qa1.showByQA(qa1.getId());
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
+        System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
         dev1.assignedBugsToDev(dev1.getId());
 
         // 3) Se desea tener los test cases que tienen una prioridad en específico
-        //suitePrueba.showByPriority(TestCasePriority.HIGH);
+        suitePrueba.showByPriority(TestCasePriority.HIGH);
 
         // 4) Se desea tener los bugs que tienen una severidad específica
-        suitePrueba.showBySeverity(Severity.MAJOR); // METHOD executeTest()
+        System.out.println("\nBugs con severidad " + Severity.MAJOR);
+        bug1.showBySeverity(Severity.MAJOR, createdBugs); // METHOD executeTest() ¿? -- NO AMIGO ARREGLA ESTO
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
 
-//        if(suitePrueba.showExecutedTestByState() == 0)
-//        {
-//            System.out.println("no se rompió.");
-//        }else {
-//            System.out.println("se rompio.");
-//            System.out.println(suitePrueba.showExecutedTestByState());
-//        };
+        System.out.println("\nCantidad de Failed/Passed/Blocked para la test suit "+ suitePrueba.getTitle()+ ":");
+        if(suitePrueba.showExecutedTestByState() == 0)
+        {
+            System.out.println("no se rompió.");
+        }else {
+            System.out.println("se rompio.");
+            System.out.println(suitePrueba.showExecutedTestByState());
+        };
 
+        // END OUTPUTS ********************************************
+
+        System.out.println("\n\n\nMUESTREO\n\n");
         System.out.println("****** SUITE *******");
         System.out.println(suitePrueba.getSprint());
 

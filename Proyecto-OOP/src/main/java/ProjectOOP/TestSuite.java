@@ -27,6 +27,16 @@ public class TestSuite
     {
         List<TestCase> filteredTestCases = testCases.stream()
                 .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
+        //METER A FUNCION A PARTE
+        int i = 0;
+        System.out.println("Test cases con prioridad "+ priority+ ":");
+        for (TestCase oneTest:filteredTestCases)
+        {
+
+            System.out.println(filteredTestCases.get(i).getDescription());
+            i++;
+            //System.out.println(createdByQA.get(0).getDescription());
+        }
         return filteredTestCases;
     }
 
@@ -69,9 +79,8 @@ public class TestSuite
     public int showExecutedTestByState()
     {
         int retorno = -1;
-        if(executedTests != null)
-        {
-            for ( ExecutedTest singleTest : executedTests)
+
+            for (ExecutedTest singleTest : executedTests)
             {
 
                 switch(singleTest.getCurrentStateString())
@@ -95,7 +104,7 @@ public class TestSuite
 
                 }
                 retorno = 0;
-            }
+
         }
 
         return retorno;
