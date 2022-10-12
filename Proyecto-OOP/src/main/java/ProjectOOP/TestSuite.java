@@ -112,4 +112,9 @@ public class TestSuite
         this.executedTests.add(executedTest);
     }
 
+    public void executeTests(List<ExecutedTest> executionList)
+    {
+
+    }
+
 }

@@ -24,7 +24,7 @@ public class Client {
         TestCase tc2 = new TestCase(2);
         TestCase tc3 = new TestCase(4);
 
-        ExecutedTest exec1 = new ExecutedTest(tc1);
+
         ExecutedTest exec2 = new ExecutedTest(tc2);
         ExecutedTest exec3 = new ExecutedTest(tc3);
 
@@ -92,7 +92,7 @@ public class Client {
         tc3.setPriority(TestCasePriority.HIGH);
         tc3.setDescription("asdasdasd3");
 
-        Step TC3_step1 = new Step("asd","asd");
+        Step TC3_step1 = new Step("asd","asd"); // SACAR EL TAMAÑO DE LA LISTA DE PASOS PARA LOS TC
         Step TC3_step2 = new Step("asd2","asd2");
         Step TC3_step3 = new Step("asd3","asd3");
         Step TC3_step4 = new Step("asd4","asd4");
@@ -101,6 +101,8 @@ public class Client {
         tc3.addStep(TC3_step2, tc1.getSteps());
         tc3.addStep(TC3_step3, tc1.getSteps());
         tc3.addStep(TC3_step4, tc1.getSteps());
+
+        ExecutedTest exec1 = new ExecutedTest(tc1); // ESTO SE PUEDE HACER ACA O SE USAR SETTERS DE EXECUTEDTC?
 
         //Executed TCs inputs
         exec1.setBuild("Version 1.0");

@@ -12,9 +12,15 @@ public class ExecutedTest extends TestCase{
     protected state currentState = state.PENDING;
     public ExecutedTest(TestCase oneTestCase) //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
     {
-        super.executed = true;
+        executed = true;
+        setTitle(oneTestCase.getTitle());
+        setDescription(oneTestCase.getDescription());
+        setSteps(oneTestCase.getSteps());
+        setCreator(oneTestCase.getCreator());
+        setPriority(oneTestCase.getPriority());
 
     }
+
     // Getters & Setters
     public String getBuild() {
         return build;
@@ -64,14 +70,33 @@ public class ExecutedTest extends TestCase{
     }
 
     @Override
-    public String toString()
-    {
-        return "ExecutedTest {" +
-                "build='" + build + '\'' +
-                ", owner=" + owner.getName() +
-                ", associatedBug=" + associatedBug +
-                ", assignedSuit=" + assignedSuit.getTitle() +
-                '}';
+    public String toString() {
+
+        String executedString = null;
+        String bug = null;
+        String suite = null;
+
+            executedString = this.getTitle()+ "{" +
+                    "build='" + build + '\'' +
+                    ", owner=" + owner.getName();
+            if(associatedBug != null)
+            {
+                bug = ", associatedBug=" + associatedBug.getTitle();
+            }else
+            {
+                bug = ", no associated bugs, ";
+            }
+            if(assignedSuit != null)
+            {
+                suite = ", assignedSuit=" + assignedSuit.getTitle() + '}';
+            }else
+            {
+                suite = ", no associated suite.";
+            }
+//            executedString.concat(bug);
+//            executedString.concat(suite);
+
+        return executedString+bug+suite;
     }
 
     public void executeTestCase(TestCase oneTestCase) // VA AL CONSTRUCTOR ESTO?¿¡?¡?¡
