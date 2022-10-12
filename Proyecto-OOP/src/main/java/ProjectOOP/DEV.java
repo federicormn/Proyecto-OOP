@@ -1,15 +1,33 @@
 package ProjectOOP;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DEV extends Employee {
-
-        private List<Bug> associatedBugs;
-
+public class DEV extends Employee
+{
+        private List<Bug> associatedBugs = new ArrayList<Bug>();
 
         public DEV(){
         }
+
+
+    // Getters & Setters
+    public List<Bug> getAssociatedBugs()
+    {
+        return associatedBugs;
+    }
+
+    public void setAssociatedBugs(List<Bug> associatedBugs)
+    {
+        this.associatedBugs = associatedBugs;
+    }
+
+    public void linkBugs(Bug oneBug)
+    {
+
+    }
+
     // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
     public List<Bug> assignedBugsToDev(int id){
         List<Bug> associatedBug = associatedBugs.stream()
@@ -17,13 +35,6 @@ public class DEV extends Employee {
         return associatedBug;
     }
 
-    public List<Bug> getAssociatedBugs() {
-        return associatedBugs;
-    }
-
-    public void setAssociatedBugs(List<Bug> associatedBugs) {
-        this.associatedBugs = associatedBugs;
-    }
 }
 
 

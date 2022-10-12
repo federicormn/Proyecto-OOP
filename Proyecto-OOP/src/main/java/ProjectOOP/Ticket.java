@@ -17,7 +17,9 @@ public class Ticket
 
 
     //Constructor
-    public Ticket() {
+    public Ticket()
+    {
+
     }
 
     //Getters & Setters

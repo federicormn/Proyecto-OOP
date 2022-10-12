@@ -12,7 +12,10 @@ public class ExecutedTest extends TestCase{
     private TestSuite assignedSuit;
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
-    public ExecutedTest() {
+    protected state currentState = state.PENDING;
+    public ExecutedTest() //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
+    {
+        super();
 
     }
     // Getters & Setters
@@ -56,24 +59,26 @@ public class ExecutedTest extends TestCase{
         this.assignedSuit = assignedSuit;
     }
 
-    public List<ExecutedTest> showByState(TestSuite suite)
-    {
-        List<ExecutedTest> pending;
-        List<ExecutedTest> passed;
-        List<ExecutedTest> failed;
-        List<ExecutedTest> blocked;
-        state example = state.FAILED;
-
-        for (ExecutedTest executedTests: suite.getExecutedTests())
-        {
-
-        }
-
-        return null;
+    public state getCurrentState() {
+        return currentState;
     }
 
-    public ExecutedTest filterByState(TestSuite suite)
+    public void setCurrentState(state currentState) {
+        this.currentState = currentState;
+    }
+
+    public String getCurrentStateString()
     {
-        return null;
+        return currentState.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "ExecutedTest{" +
+                "build='" + build + '\'' +
+                ", owner=" + owner +
+                ", associatedBug=" + associatedBug +
+                ", assignedSuit=" + assignedSuit +
+                '}';
     }
 }
