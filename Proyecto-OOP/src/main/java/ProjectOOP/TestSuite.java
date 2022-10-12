@@ -21,7 +21,7 @@ public class TestSuite
                 .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
         //METER A FUNCION A PARTE
         int i = 0;
-        System.out.println("Test cases con prioridad "+ priority+ ":");
+        System.out.println("\nTest cases con prioridad "+ priority+ ":");
         for (TestCase oneTest:filteredTestCases)
         {
 
@@ -112,9 +112,42 @@ public class TestSuite
         this.executedTests.add(executedTest);
     }
 
-    public void executeTests(List<ExecutedTest> executionList)
-    {
-
-    }
-
+//    public List<ExecutedTest> createExecutionList(List<TestCase> testsForExecution, List<ExecutedTest> executionList)
+//    {
+//        for (TestCase oneTest:testsForExecution)
+//        {
+//             ExecutedTest createdTest = new ExecutedTest(oneTest);
+//             executionList.add(createdTest);
+//        }
+//        return executionList;
+//    }
+//
+//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner , String state)
+//    {
+//        oneTest.setBuild(build);
+//        oneTest.setOwner(owner);
+//
+//        switch (state)
+//        {
+//            case "PASSED":
+//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
+//                break;
+//            case "FAILED":
+//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
+//                break;
+//            case "BLOCKED":
+//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
+//                break;
+//        }
+//
+//    }
+//
+//    public void executeTests(List<ExecutedTest> executionList)
+//    {
+//        for (ExecutedTest testToExecute:executionList)
+//        {
+//            testToExecute.setExecutionValues();
+//        }
+//    }
+//
 }

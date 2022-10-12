@@ -59,7 +59,7 @@ public class TestCase {
 
     public void setSteps(List<Step> steps)
     {
-        this.steps = this.steps;
+        this.steps = steps;
 
     }
 

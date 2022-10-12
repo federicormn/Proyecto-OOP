@@ -10,7 +10,7 @@ public class ExecutedTest extends TestCase{
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     protected state currentState = state.PENDING;
-    public ExecutedTest(TestCase oneTestCase) //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
+    public ExecutedTest(TestCase oneTestCase)
     {
         executed = true;
         setTitle(oneTestCase.getTitle());
@@ -99,9 +99,27 @@ public class ExecutedTest extends TestCase{
         return executedString+bug+suite;
     }
 
-    public void executeTestCase(TestCase oneTestCase) // VA AL CONSTRUCTOR ESTO?¿¡?¡?¡
-    {
-
-
-    }
+//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner, Bug linkedBug, String state)
+//    {
+//        oneTest.setBuild(build);
+//        oneTest.setOwner(owner);
+//
+//        switch (state)
+//        {
+//            case "PASSED":
+//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
+//                break;
+//            case "FAILED":
+//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
+//                break;
+//            case "BLOCKED":
+//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
+//                break;
+//        }
+//        if(oneTest.getCurrentState().toString() == "FAILED")
+//        {
+//            oneTest.setAssociatedBug(linkedBug);
+//        }
+//
+//    }
 }

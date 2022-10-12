@@ -25,8 +25,8 @@ public class Client {
         TestCase tc3 = new TestCase(4);
 
 
-        ExecutedTest exec2 = new ExecutedTest(tc2);
-        ExecutedTest exec3 = new ExecutedTest(tc3);
+//        ExecutedTest exec2 = new ExecutedTest(tc2);
+//        ExecutedTest exec3 = new ExecutedTest(tc3);
 
         Bug bug1 = new Bug();
         Bug bug2 = new Bug();
@@ -51,7 +51,7 @@ public class Client {
 
         //DEVs inputs
         dev1.setId(3);
-        dev1.setName("asd");
+        dev1.setName("Ema");
         dev1.setLastname("dsa");
         dev1.setPhoneNumber(321321);
 
@@ -102,7 +102,9 @@ public class Client {
         tc3.addStep(TC3_step3, tc1.getSteps());
         tc3.addStep(TC3_step4, tc1.getSteps());
 
-        ExecutedTest exec1 = new ExecutedTest(tc1); // ESTO SE PUEDE HACER ACA O SE USAR SETTERS DE EXECUTEDTC?
+        ExecutedTest exec1 = new ExecutedTest(tc1); // QUE INSTANCIE EL TEST SUIT
+        ExecutedTest exec2 = new ExecutedTest(tc2);
+        ExecutedTest exec3 = new ExecutedTest(tc3);
 
         //Executed TCs inputs
         exec1.setBuild("Version 1.0");
@@ -131,7 +133,7 @@ public class Client {
         bug1.setSteps(tc1.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
         bug1.setTitle("titulo bug 1");
         bug1.setAssignedTo(dev1);
-        bug1.setSeverity(Severity.MAJOR);
+        bug1.setSeverity(Severity.MINOR);
         bug1.addBugToList(createdBugs);
 
         bug2.setExpectedResult("algo2");
@@ -166,11 +168,11 @@ public class Client {
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
-        qa1.showByQA(qa1.getId());
+        qa1.showByQA();
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
-        System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
-        dev1.assignedBugsToDev(dev1.getId());
+        System.out.println("\nBugs asignados al dev " + dev2.getName()+ ":");
+        dev2.assignedBugsToDev();
 
         // 3) Se desea tener los test cases que tienen una prioridad en específico
         suitePrueba.showByPriority(TestCasePriority.HIGH);
