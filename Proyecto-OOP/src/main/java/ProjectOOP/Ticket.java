@@ -14,8 +14,6 @@ public class Ticket
     protected String actualResult;
     protected Employee reporter;
 
-
-
     //Constructor
     public Ticket()
     {
@@ -23,10 +21,6 @@ public class Ticket
     }
 
     //Getters & Setters
-
-
-
-
 
     public String getTitle() {
         return title;
