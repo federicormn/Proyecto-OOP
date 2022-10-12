@@ -61,7 +61,7 @@ public class Client {
         tc1.setTitle("test case 1");
         tc1.setCreator(qa1);
         tc1.setPriority(TestCasePriority.HIGH);
-        tc1.setDescription("asdasdasd");
+        tc1.setDescription("asdasdasd1");
 
         Step TC1_step1 = new Step("asd","asd");
         Step TC1_step2 = new Step("asd2","asd2");
@@ -90,7 +90,7 @@ public class Client {
         tc2.setTitle("test case 2");
         tc2.setCreator(qa2);
         tc2.setPriority(TestCasePriority.HIGH);
-        tc2.setDescription("asdasdasd");
+        tc2.setDescription("asdasdasd2");
 
         Step TC2_step1 = new Step("asd","asd");
         Step TC2_step2 = new Step("asd2","asd2");
@@ -101,7 +101,7 @@ public class Client {
         tc3.setTitle("test case 3");
         tc3.setCreator(qa1);
         tc3.setPriority(TestCasePriority.HIGH);
-        tc3.setDescription("asdasdasd");
+        tc3.setDescription("asdasdasd3");
 
         Step TC3_step1 = new Step("asd","asd");
         Step TC3_step2 = new Step("asd2","asd2");
@@ -142,11 +142,15 @@ public class Client {
         suitePrueba.setTitle("Suite 1");
         //suitePrueba.setTestCases();
 
+        //ADDING TEST CASES TO SUIT
+        suitePrueba.addTestCase(tc1);
+        suitePrueba.addTestCase(tc2);
+        suitePrueba.addTestCase(tc3);
 
         //OUTPUTS ********************************************
 
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
-        //qa1.showByQA(qa1.getId());
+        qa1.showByQA(qa1.getId());
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
         //dev1.assignedBugsToDev(dev1.getId());
@@ -155,10 +159,17 @@ public class Client {
         //suitePrueba.showByPriority(TestCasePriority.HIGH);
 
         // 4) Se desea tener los bugs que tienen una severidad específica
-        //suitePrueba.showBySeverity(Severity.MAJOR);
+        suitePrueba.showBySeverity(Severity.MAJOR); // METHOD executeTest()
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
-        //suitePrueba.showExecutedTestByState();
+
+//        if(suitePrueba.showExecutedTestByState() == 0)
+//        {
+//            System.out.println("no se rompió.");
+//        }else {
+//            System.out.println("se rompio.");
+//            System.out.println(suitePrueba.showExecutedTestByState());
+//        };
 
         System.out.println("****** SUITE *******");
         System.out.println(suitePrueba.getSprint());
@@ -172,7 +183,7 @@ public class Client {
         System.out.println(dev2.getId());
 
         System.out.println("****** TCs *******");
-        System.out.println(tc1.getCreator().getName());
+        System.out.println("Dir. de mem. del TC1: "+tc1.getCreator());
         System.out.println(tc2.getCreator().getName());
         System.out.println(tc3.getCreator().getName());
 

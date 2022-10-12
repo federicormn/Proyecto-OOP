@@ -13,7 +13,7 @@ public class ExecutedTest extends TestCase{
     protected enum state{PENDING, PASSED, FAILED, BLOCKED};
 
     protected state currentState = state.PENDING;
-    public ExecutedTest()
+    public ExecutedTest() //QUE RECIBA UN OBJETO TEST CASE x PARAMETRO
     {
         super();
 

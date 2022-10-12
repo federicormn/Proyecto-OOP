@@ -64,11 +64,14 @@ public class TestCase {
         return steps;
     }
 
-    public QA getCreator() {
+    public QA getCreator()
+    {
         return creator;
     }
 
-    public void setCreator(QA creator) {
+    public void setCreator(QA creator)
+    {
+        creator.addCreatedTestCase(this);
         this.creator = creator;
     }
 
