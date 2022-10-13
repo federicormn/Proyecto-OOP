@@ -11,35 +11,9 @@ public class TestSuite
     private List<TestCase> testCases = new ArrayList<TestCase>();
     private List<ExecutedTest> executedTests = new ArrayList<ExecutedTest>();
 
-    public TestSuite(){}
-
-
-    // Se desea tener los bugs que tienen una severidad específica, filtrar lista ExecutedTest
-    public List<ExecutedTest> showBySeverity(Severity severity)
-    {
-            List<ExecutedTest> bugsBySeverity = executedTests.stream()
-                    .filter(tc -> tc.getSeverity() == severity).collect(Collectors.toList());
-            return bugsBySeverity;
+    public TestSuite(String title){
+        this.title = title;
     }
-
-    // 3) Se desea tener los test cases que tienen una prioridad en específico
-    public List<TestCase> showByPriority(TestCasePriority priority)
-    {
-        List<TestCase> filteredTestCases = testCases.stream()
-                .filter(tc -> tc.getPriority() == priority).collect(Collectors.toList());
-        //METER A FUNCION A PARTE
-        int i = 0;
-        System.out.println("Test cases con prioridad "+ priority+ ":");
-        for (TestCase oneTest:filteredTestCases)
-        {
-
-            System.out.println(filteredTestCases.get(i).getDescription());
-            i++;
-            //System.out.println(createdByQA.get(0).getDescription());
-        }
-        return filteredTestCases;
-    }
-
 
     // Getters & Setters
     public String getTitle() {
@@ -83,21 +57,21 @@ public class TestSuite
             for (ExecutedTest singleTest : executedTests)
             {
 
-                switch(singleTest.getCurrentStateString())
+                switch(singleTest.getCurrentState())
                 {
-                    case "PENDING":
+                    case PENDING:
                         System.out.println("PENDING:");
                         System.out.println(singleTest.toString());
                         break;
-                    case "PASSED":
+                    case PASSED:
                         System.out.println("PASSED");
                         System.out.println(singleTest.toString());
                         break;
-                    case "FAILED":
+                    case FAILED:
                         System.out.println("FAILED");
                         System.out.println(singleTest.toString());
                         break;
-                    case "BLOCKED":
+                    case BLOCKED:
                         System.out.println("BLOCKED");
                         System.out.println(singleTest.toString());
                         break;
@@ -115,4 +89,9 @@ public class TestSuite
         this.testCases.add(oneTestCase);
     }
 
+    public void addExecutedTestCase(ExecutedTest executedTest)
+    {
+        this.executedTests.add(executedTest);
+    }
 }
+

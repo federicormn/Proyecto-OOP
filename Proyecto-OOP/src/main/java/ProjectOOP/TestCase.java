@@ -1,29 +1,36 @@
 package ProjectOOP;
 
-import javax.xml.transform.stream.StreamSource;
+import java.util.ArrayList;
 import java.util.List;
 
 enum TestCasePriority {HIGH, MEDIUM, LOW}
 
 public class TestCase {
     private String title;
-
     private String description;
-    private List<Step> steps;
+    private List<Step> steps = new ArrayList<Step>();
     private QA creator;
     protected TestCasePriority priority;
+
+    public TestCase(String title, String description, List<Step> steps, QA creator, TestCasePriority priority, boolean executed, int amountSteps) {
+        this.title = title;
+        this.description = description;
+        this.steps = steps;
+        this.creator = creator;
+        this.priority = priority;
+        this.executed = executed;
+        this.amountSteps = amountSteps;
+    }
+
+    boolean executed = false;
 
     int amountSteps;
 
     // Classes
 
     //Construct. con amountSteps parametrizado
-    public TestCase(int amountSteps){}
 
     //Construct. sin parametros
-    public TestCase() {
-
-    }
 
     // Getters & Setters
 
@@ -57,11 +64,9 @@ public class TestCase {
         return steps;
     }
 
-    public List<Step> setSteps(int amountSteps)
+    public void setSteps(List<Step> steps)
     {
         this.steps = steps;
-
-        return steps;
     }
 
     public QA getCreator()
@@ -71,14 +76,15 @@ public class TestCase {
 
     public void setCreator(QA creator)
     {
-        creator.addCreatedTestCase(this);
-        this.creator = creator;
-    }
 
-    public void addStep(Step oneStep, List<Step> steps)
+        if(creator != null)
+        {
+            creator.addCreatedTestCase(this);
+            this.creator = creator;
+        }
+    }
+    public void addStep(Step oneStep)
     {
         this.steps.add(oneStep);
     }
-
-
 }

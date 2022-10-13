@@ -8,8 +8,9 @@ public class DEV extends Employee
 {
         private List<Bug> associatedBugs = new ArrayList<Bug>();
 
-        public DEV(){
-        }
+    public DEV(int id, String name, String lastname, int phoneNumber, String seniority) {
+        super(id, name, lastname, phoneNumber, seniority);
+    }
 
 
     // Getters & Setters
@@ -29,23 +30,9 @@ public class DEV extends Employee
     }
 
     // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
-    public List<Bug> assignedBugsToDev(int id){
+    public List<Bug> assignedBugsToDev(){
         List<Bug> associatedBug = associatedBugs.stream()
-                .filter(tc -> tc.assignedTo.getId() == id).collect(Collectors.toList());
-
-        //System.out.println("Bugs asociados: "+associatedBug);
-        //ESTO TAMPOCO VA ACA - CREAR METODO A PARTE PARA MOSTRAR
-        int i = 0;
-        for (Bug oneBug:associatedBug)
-        {
-
-            System.out.println(associatedBug.get(i).getDescription());
-            i++;
-            //System.out.println(createdByQA.get(0).getDescription());
-        }
+                .filter(tc -> tc.assignedTo.getId() == this.getId()).collect(Collectors.toList());
         return associatedBug;
     }
-
 }
-
-

@@ -8,132 +8,77 @@ public class Client {
     public static void main(String[]args)
     {
 
+        //**************************************** INSTANCES ********************************************
+        QA qa1 = new QA(1, "Emanuel","Ditzel", 22222323, "Jr");
+        QA qa2 = new QA(2, "Federico","Riquelme", 21782323, "Ssr");
 
-        //INSTANCES ********************************************
+        DEV dev1 = new DEV(3, "Juan","Figueroa", 2282323, "Jr");
+        DEV dev2 = new DEV(4, "Tim","Burton", 21982723, "Sr");
 
-        TestSuite suitePrueba = new TestSuite();
+        TestSuite suitePrueba = new TestSuite("Login Test Suite");
+
         List<Bug> createdBugs = new ArrayList<Bug>(); //AUXILIAR LIST FOR CREATED BUGS
 
-        QA qa1 = new QA();
-        QA qa2 = new QA();
 
-        DEV dev1 = new DEV();
-        DEV dev2 = new DEV();
+        List<Step> loginBugSteps = new ArrayList<Step>();
+        loginBugSteps.add(new Step("Open application", "Should be able to see [Login] button"));
+        loginBugSteps.add(new Step("Click on [Login] button", "Should be redirected to the main page"));
 
-        TestCase tc1 = new TestCase(3);
-        TestCase tc2 = new TestCase(2);
-        TestCase tc3 = new TestCase(4);
+        List<Step> registerBugSteps = new ArrayList<Step>();
+        registerBugSteps.add(new Step("Open application", "Should be able to see [Register] button"));
 
-        Bug bug1 = new Bug();
-        Bug bug2 = new Bug();
+        Bug bug1 = new Bug(qa1, "[OOP-002] Login error", loginBugSteps, "The user should be able to login successfully", "[Login] button doesn't do anything", dev1, Severity.MAJOR, "[Login] button doesn't work");
+        bug1.addBugToList(createdBugs);
+        Bug bug2 = new Bug(qa2, "[OOP-001] Register error", registerBugSteps, "The user should be able to register successfully", "[Register] button is not visible", dev2, Severity.MAJOR, "[Register] button is not visible");
+        bug2.addBugToList(createdBugs);
+
+
+
+
+        TestCase tc1 = new TestCase("Register Test Case","Test regitster button functionality.", new ArrayList<Step>(), qa1, TestCasePriority.HIGH,false, 2 );
+        TestCase tc2 = new TestCase("Login Test Case","Test login functionality.", new ArrayList<Step>(), qa2, TestCasePriority.HIGH,false, 2 );
+        TestCase tc3 = new TestCase("Delete Account Test Case","Test regitster functionality.", new ArrayList<Step>(), qa1, TestCasePriority.HIGH,false, 2 );
+
+
+        ExecutedTest exec1 = new ExecutedTest(tc1, "Version 1.0",qa1, bug1, suitePrueba, ExecutedTest.state.FAILED);
+        ExecutedTest exec2 = new ExecutedTest(tc2, "Version 2.0",qa1, bug2, suitePrueba, ExecutedTest.state.BLOCKED);
+        ExecutedTest exec3 = new ExecutedTest(tc3, "Version 3.0",qa2, bug1, suitePrueba, ExecutedTest.state.PASSED);
+
+
 
         Enhancement enhancement1 = new Enhancement();
 
-        //SETTING ********************************************
+        //**************************************** SETTING INPUTS ****************************************
 
         //QAs inputs
-        qa1.setId(1);
-        qa1.setName("Fede");
-        qa1.setLastname("Roman");
-        qa1.setPhoneNumber(123123);
-        qa1.setSeniority("junior");
-
-
-        qa2.setId(2);
-        qa2.setName("Ema");
-        qa2.setLastname("Ditzel");
-        qa2.setPhoneNumber(123124);
-        qa2.setSeniority("senior");
-
-        //DEVs inputs
-        dev1.setId(3);
-        dev1.setName("asd");
-        dev1.setLastname("dsa");
-        dev1.setPhoneNumber(321321);
-
-
-        dev2.setId(4);
-        dev2.setName("asdf");
-        dev2.setLastname("dsaf");
-        dev2.setPhoneNumber(231321);
 
 
         //TCs inputs
-        tc1.setTitle("test case 1");
-        tc1.setCreator(qa1);
-        tc1.setPriority(TestCasePriority.LOW);
-        tc1.setDescription("asdasdasd1");
-
         Step TC1_step1 = new Step("asd","asd");
         Step TC1_step2 = new Step("asd2","asd2");
         Step TC1_step3 = new Step("asd3","asd3");
 
-//        tc1.addStep(TC1_step1, tc1.getSteps());
-//        tc1.addStep(TC1_step2, tc1.getSteps());
-//        tc1.addStep(TC1_step3, tc1.getSteps());
+        tc1.addStep(TC1_step1);
+        tc1.addStep(TC1_step2);
+        tc1.addStep(TC1_step3);
 
-////        tc1.setSteps(tc1.amountSteps);
-////        {
-////
-////            List<Step> stepsList = new ArrayList<>();
-//            Step step1 = new Step("asd","asd");
-//            Step step2 = new Step("asd2","asd2");
-//            Step step3 = new Step("asd3","asd3");
-//
-//            stepsList.add(step1);
-//            stepsList.add(step2);
-//            stepsList.add(step3);
-//
-//            return stepsList;
-//        }
-
-
-        tc2.setTitle("test case 2");
-        tc2.setCreator(qa2);
-        tc2.setPriority(TestCasePriority.HIGH);
-        tc2.setDescription("asdasdasd2");
 
         Step TC2_step1 = new Step("asd","asd");
         Step TC2_step2 = new Step("asd2","asd2");
 
-//        tc2.addStep(TC2_step1, tc1.getSteps());
-//        tc2.addStep(TC2_step2, tc1.getSteps());
+        tc2.addStep(TC2_step1);
+        tc2.addStep(TC2_step2);
 
-        tc3.setTitle("test case 3");
-        tc3.setCreator(qa1);
-        tc3.setPriority(TestCasePriority.HIGH);
-        tc3.setDescription("asdasdasd3");
 
         Step TC3_step1 = new Step("asd","asd");
         Step TC3_step2 = new Step("asd2","asd2");
         Step TC3_step3 = new Step("asd3","asd3");
         Step TC3_step4 = new Step("asd4","asd4");
 
-//        tc3.addStep(TC3_step1, tc1.getSteps());
-//        tc3.addStep(TC3_step2, tc1.getSteps());
-//        tc3.addStep(TC3_step3, tc1.getSteps());
-//        tc3.addStep(TC3_step4, tc1.getSteps());
-
-        //BUGs inputs
-        bug1.setExpectedResult("algo");
-        bug1.setActualResult("algon't");
-        bug1.setDescription("hola soy el bug 1");
-        bug1.setReporter(qa1);
-        bug1.setSteps(tc1.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
-        bug1.setTitle("titulo bug 1");
-        bug1.setAssignedTo(dev1);
-        bug1.setSeverity(Severity.MAJOR);
-        bug1.addBugToList(createdBugs);
-
-        bug2.setExpectedResult("algo2");
-        bug2.setActualResult("algon't2");
-        bug2.setDescription("hola soy el bug 2");
-        bug2.setReporter(qa2);
-        bug2.setSteps(tc2.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
-        bug2.setTitle("titulo bug 2");
-        bug2.setAssignedTo(dev2);
-        bug2.setSeverity(Severity.MAJOR);
-        bug2.addBugToList(createdBugs);
+        tc3.addStep(TC3_step1);
+        tc3.addStep(TC3_step2);
+        tc3.addStep(TC3_step3);
+        tc3.addStep(TC3_step4);
 
         //ENHANCEMENT inputs --> DEBE EXISTIR UN TICKET PARA ASOCIAR
         enhancement1.setTitle("algo3");
@@ -152,60 +97,39 @@ public class Client {
         suitePrueba.addTestCase(tc2);
         suitePrueba.addTestCase(tc3);
 
-        //OUTPUTS ********************************************
+        suitePrueba.addExecutedTestCase(exec1);
+        suitePrueba.addExecutedTestCase(exec2);
+        suitePrueba.addExecutedTestCase(exec3);
+
+        //**************************************** OUTPUTS ********************************************
+//Arreglar formateo de datos
+        // steps - hay que crear los steps desp de creado tc y agregar la lista con su tamaño y agregarlo como atributo de test case.
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
-        qa1.showByQA(qa1.getId());
+        TestCaseHelper.showTests(qa1.testCasesCreatedByQA());
+
 
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
         System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
-        dev1.assignedBugsToDev(dev1.getId());
+        BugHelper.showBugs(dev1.assignedBugsToDev());
+
 
         // 3) Se desea tener los test cases que tienen una prioridad en específico
-        suitePrueba.showByPriority(TestCasePriority.HIGH);
+        System.out.println("Test cases con prioridad:");
 
+        TestCaseHelper.showTests(TestCaseHelper.filterByPriority(TestCasePriority.HIGH, suitePrueba.getTestCases()));
+        // mover filterBypri.. a TestSuite.
         // 4) Se desea tener los bugs que tienen una severidad específica
         System.out.println("\nBugs con severidad " + Severity.MAJOR);
-        bug1.showBySeverity(Severity.MAJOR, createdBugs); // METHOD executeTest() ¿? -- NO AMIGO ARREGLA ESTO
+
+        BugHelper.showBugs(BugHelper.filterBySeverity(Severity.MAJOR, createdBugs));
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
 
-        System.out.println("\nCantidad de Failed/Passed/Blocked para la test suit "+ suitePrueba.getTitle()+ ":");
-        if(suitePrueba.showExecutedTestByState() == 0)
-        {
-            System.out.println("no se rompió.");
-        }else {
-            System.out.println("se rompio.");
-            System.out.println(suitePrueba.showExecutedTestByState());
-        };
+        System.out.println("\nCantidad de Failed/Passed/Blocked para el test suit '"+ suitePrueba.getTitle()+ "':");
+        suitePrueba.showExecutedTestByState();
 
-        // END OUTPUTS ********************************************
-
-        System.out.println("\n\n\nMUESTREO\n\n");
-        System.out.println("****** SUITE *******");
-        System.out.println(suitePrueba.getSprint());
-
-        System.out.println("****** QAs *******");
-        System.out.println(qa1.getId());
-        System.out.println(qa2.getId());
-
-        System.out.println("****** DEVs *******");
-        System.out.println(dev1.getId());
-        System.out.println(dev2.getId());
-
-        System.out.println("****** TCs *******");
-        System.out.println("Dir. de mem. del TC1: "+tc1.getCreator());
-        System.out.println(tc2.getCreator().getName());
-        System.out.println(tc3.getCreator().getName());
-
-        System.out.println("****** BUGs *******");
-        System.out.println(bug1.getExpectedResult());
-        System.out.println(bug2.getExpectedResult());
-
-        System.out.println("****** ENHs *******");
-        System.out.println(enhancement1.getSuggestedResult());
-
-
+        //******************************************** END OUTPUTS ********************************************
     }
 }
