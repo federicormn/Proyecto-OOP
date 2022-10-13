@@ -139,7 +139,7 @@ public class Client {
         bug2.setSteps(tc2.getSteps()); // VERIFICAR QUE SEAN LOS MISMOS PASOS DEL TC ASOCIADO
         bug2.setTitle("titulo bug 2");
         bug2.setAssignedTo(dev2);
-        bug2.setSeverity(Severity.MAJOR);
+        bug2.setSeverity(Severity.MINOR);
         bug2.addBugToList(createdBugs);
 
         //ENHANCEMENT inputs --> DEBE EXISTIR UN TICKET PARA ASOCIAR
@@ -160,23 +160,25 @@ public class Client {
         suitePrueba.addTestCase(tc3);
 
         //**************************************** OUTPUTS ********************************************
-
+//Arreglar formateo de datos
+        // steps - hay que crear los steps desp de creado tc y agregar la lista con su tamaño y agregarlo como atributo de test case.
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
         TestCaseHelper.showTests(qa1.testCasesCreatedByQA());
 
-
         // 2) Se desea tener un método que me muestre los bugs asignados a un específico desarrollador
         System.out.println("\nBugs asignados al dev " + dev1.getName()+ ":");
+        BugHelper.showBugs(dev1.assignedBugsToDev());
 
-        dev1.assignedBugsToDev();
+
         // 3) Se desea tener los test cases que tienen una prioridad en específico
-        TestCaseHelper.filterByPriority(TestCasePriority.HIGH, suitePrueba.getTestCases());
-
+        System.out.println("Test cases con prioridad:");
+        TestCaseHelper.showTests(TestCaseHelper.filterByPriority(TestCasePriority.HIGH, suitePrueba.getTestCases()));
+        // mover filterBypri.. a TestSuite.
         // 4) Se desea tener los bugs que tienen una severidad específica
-        System.out.println("\nBugs con severidad " + Severity.MAJOR);
-        BugHelper.showBugs(Severity.MAJOR, createdBugs);
+        System.out.println("\nBugs con severidad " + Severity.MINOR);
+        BugHelper.showBugs(BugHelper.filterBySeverity(Severity.MINOR, createdBugs));
 
         // 5) Se desea tener la cantidad de failed/passed/blocked de un test suite
 

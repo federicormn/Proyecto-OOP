@@ -9,9 +9,9 @@ public class Bug extends Ticket {
     protected DEV assignedTo;
     public Severity severity;
 
-    public Bug(){}
+    public Bug(){
 
-
+    }
     // Getters & Setters
     public String getExpectedResult()
     {
@@ -23,12 +23,10 @@ public class Bug extends Ticket {
         this.expectedResult = expectedResult;
     }
 
-
     public DEV getAssignedTo()
     {
         return assignedTo;
     }
-
 
     public void setAssignedTo(DEV assignedTo)
     {

@@ -34,7 +34,4 @@ public class DEV extends Employee
                 .filter(tc -> tc.assignedTo.getId() == this.getId()).collect(Collectors.toList());
         return associatedBug;
     }
-
 }
-
-
