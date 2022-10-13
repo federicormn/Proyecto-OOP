@@ -11,19 +11,26 @@ public class TestCase {
     private List<Step> steps = new ArrayList<Step>();
     private QA creator;
     protected TestCasePriority priority;
+
+    public TestCase(String title, String description, List<Step> steps, QA creator, TestCasePriority priority, boolean executed, int amountSteps) {
+        this.title = title;
+        this.description = description;
+        this.steps = steps;
+        this.creator = creator;
+        this.priority = priority;
+        this.executed = executed;
+        this.amountSteps = amountSteps;
+    }
+
     boolean executed = false;
 
-    int amountSteps; // GUARDAR EL LENGTH DE LA LIST<> steps
+    int amountSteps;
 
     // Classes
 
     //Construct. con amountSteps parametrizado
-    public TestCase(int amountSteps){}
 
     //Construct. sin parametros
-    public TestCase() {
-
-    }
 
     // Getters & Setters
 
@@ -60,7 +67,6 @@ public class TestCase {
     public void setSteps(List<Step> steps)
     {
         this.steps = steps;
-
     }
 
     public QA getCreator()
@@ -77,11 +83,8 @@ public class TestCase {
             this.creator = creator;
         }
     }
-
-    public void addStep(Step oneStep, List<Step> steps)
+    public void addStep(Step oneStep)
     {
         this.steps.add(oneStep);
     }
-
-
 }

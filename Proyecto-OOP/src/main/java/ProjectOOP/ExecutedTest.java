@@ -2,23 +2,25 @@ package ProjectOOP;
 
 import java.util.List;
 
-public class ExecutedTest extends TestCase{
+public class ExecutedTest extends TestCase {
     private String build;
     private Employee owner;
     protected Bug associatedBug;
     private TestSuite assignedSuit;
-    protected enum state{PENDING, PASSED, FAILED, BLOCKED};
+
+    protected enum state {PENDING, PASSED, FAILED, BLOCKED}
+
+    ;
 
     protected state currentState = state.PENDING;
-    public ExecutedTest(TestCase oneTestCase)
-    {
-        executed = true;
-        setTitle(oneTestCase.getTitle());
-        setDescription(oneTestCase.getDescription());
-        setSteps(oneTestCase.getSteps());
-        setCreator(oneTestCase.getCreator());
-        setPriority(oneTestCase.getPriority());
 
+    public ExecutedTest(TestCase testCase, String build, Employee owner, Bug associatedBug, TestSuite assignedSuit, state currentState) {
+        super(testCase.getTitle(), testCase.getDescription(), testCase.getSteps(), testCase.getCreator(), testCase.getPriority(), testCase.executed, testCase.amountSteps);
+        this.build = build;
+        this.owner = owner;
+        this.associatedBug = associatedBug;
+        this.assignedSuit = assignedSuit;
+        this.currentState = currentState;
     }
 
     // Getters & Setters
@@ -50,8 +52,7 @@ public class ExecutedTest extends TestCase{
         return assignedSuit;
     }
 
-    public void setAssignedSuit(TestSuite assignedSuit)
-    {
+    public void setAssignedSuit(TestSuite assignedSuit) {
         assignedSuit.addExecutedTestCase(this); // ?¿?¿
         this.assignedSuit = assignedSuit;
     }
@@ -64,8 +65,7 @@ public class ExecutedTest extends TestCase{
         this.currentState = currentState;
     }
 
-    public String getCurrentStateString()
-    {
+    public String getCurrentStateString() {
         return currentState.toString();
     }
 
@@ -76,50 +76,22 @@ public class ExecutedTest extends TestCase{
         String bug = null;
         String suite = null;
 
-            executedString = this.getTitle()+ "{" +
-                    "build='" + build + '\'' +
-                    ", owner=" + owner.getName();
-            if(associatedBug != null)
-            {
-                bug = ", associatedBug=" + associatedBug.getTitle();
-            }else
-            {
-                bug = ", no associated bugs, ";
-            }
-            if(assignedSuit != null)
-            {
-                suite = ", assignedSuit=" + assignedSuit.getTitle() + '}';
-            }else
-            {
-                suite = ", no associated suite.";
-            }
+        executedString = this.getTitle() + "{" +
+                "build='" + build + '\'' +
+                ", owner=" + owner.getName();
+        if (associatedBug != null) {
+            bug = ", associatedBug=" + associatedBug.getTitle();
+        } else {
+            bug = ", no associated bugs, ";
+        }
+        if (assignedSuit != null) {
+            suite = ", assignedSuit=" + assignedSuit.getTitle() + '}';
+        } else {
+            suite = ", no associated suite.";
+        }
 //            executedString.concat(bug);
 //            executedString.concat(suite);
 
-        return executedString+bug+suite;
+        return executedString + bug + suite;
     }
-
-//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner, Bug linkedBug, String state)
-//    {
-//        oneTest.setBuild(build);
-//        oneTest.setOwner(owner);
-//
-//        switch (state)
-//        {
-//            case "PASSED":
-//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
-//                break;
-//            case "FAILED":
-//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
-//                break;
-//            case "BLOCKED":
-//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
-//                break;
-//        }
-//        if(oneTest.getCurrentState().toString() == "FAILED")
-//        {
-//            oneTest.setAssociatedBug(linkedBug);
-//        }
-//
-//    }
 }

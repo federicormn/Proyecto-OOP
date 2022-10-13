@@ -8,18 +8,12 @@ public class Ticket
     protected String title;
     protected String description;
     protected enum Priority {LOW, MEDIUM, HIGH};
-
-
     protected List<Step> steps;
     protected String actualResult;
     protected Employee reporter;
 
     //Constructor
-    public Ticket()
-    {
-
-    }
-
+    public Ticket(){}
     //Getters & Setters
 
     public String getTitle() {
