@@ -28,8 +28,17 @@ public class Client {
         ExecutedTest exec2 = new ExecutedTest(tc2);
         ExecutedTest exec3 = new ExecutedTest(tc3);
 
-        Bug bug1 = new Bug();
-        Bug bug2 = new Bug();
+        List<Step> loginBugSteps = new ArrayList<Step>();
+        loginBugSteps.add(new Step("Open application", "Should be able to see [Login] button"));
+        loginBugSteps.add(new Step("Click on [Login] button", "Should be redirected to the main page"));
+
+        List<Step> registerBugSteps = new ArrayList<Step>();
+        loginBugSteps.add(new Step("Open application", "Should be able to see [Register] button"));
+
+        // loginBugSteps.add(new Step("Login with Facebook does not work", "Being able to login with Facebook"));
+
+        Bug bug1 = new Bug(qa1, "[OOP-002] Login error", loginBugSteps, "The user should be able to login successfully", "[Login] button doesn't do anything", dev1, Severity.MAJOR, "[Login] button doesn't work");
+        Bug bug2 = new Bug(qa2, "[OOP-001] Register error", registerBugSteps, "The user should be able to register successfully", "[Register] button is not visible", dev2, Severity.MAJOR, "[Register] button is not visible");
 
         Enhancement enhancement1 = new Enhancement();
 
@@ -51,14 +60,14 @@ public class Client {
 
         //DEVs inputs
         dev1.setId(3);
-        dev1.setName("asd");
-        dev1.setLastname("dsa");
+        dev1.setName("Juan");
+        dev1.setLastname("Riquelme");
         dev1.setPhoneNumber(321321);
 
 
         dev2.setId(4);
-        dev2.setName("asdf");
-        dev2.setLastname("dsaf");
+        dev2.setName("Ricardo");
+        dev2.setLastname("Maravilla");
         dev2.setPhoneNumber(231321);
 
 
