@@ -8,7 +8,8 @@ public class QA extends Employee {
         private Bug reportedBug;
         private String associatedStory;
 
-        public QA(){
+        public QA(int id, String name, String lastname, int phoneNumber, String seniority) {
+                super(id, name, lastname, phoneNumber, seniority);
         }
 
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
@@ -17,8 +18,6 @@ public class QA extends Employee {
                         .filter(tc -> tc.getCreator().getId() == this.getId()).collect(Collectors.toList());
                 return filterByQA;
         }
-
-
 
         // Getters & Setters
         public List<TestCase> getTestCases() {

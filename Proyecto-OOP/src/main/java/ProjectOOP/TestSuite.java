@@ -11,7 +11,9 @@ public class TestSuite
     private List<TestCase> testCases = new ArrayList<TestCase>();
     private List<ExecutedTest> executedTests = new ArrayList<ExecutedTest>();
 
-    public TestSuite(){}
+    public TestSuite(String title){
+        this.title = title;
+    }
 
     // Getters & Setters
     public String getTitle() {
@@ -55,21 +57,21 @@ public class TestSuite
             for (ExecutedTest singleTest : executedTests)
             {
 
-                switch(singleTest.getCurrentStateString())
+                switch(singleTest.getCurrentState())
                 {
-                    case "PENDING":
+                    case PENDING:
                         System.out.println("PENDING:");
                         System.out.println(singleTest.toString());
                         break;
-                    case "PASSED":
+                    case PASSED:
                         System.out.println("PASSED");
                         System.out.println(singleTest.toString());
                         break;
-                    case "FAILED":
+                    case FAILED:
                         System.out.println("FAILED");
                         System.out.println(singleTest.toString());
                         break;
-                    case "BLOCKED":
+                    case BLOCKED:
                         System.out.println("BLOCKED");
                         System.out.println(singleTest.toString());
                         break;

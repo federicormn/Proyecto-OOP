@@ -7,7 +7,15 @@ public class Employee {
     private int phoneNumber;
     private String seniority;
 
-    public Employee(){};
+
+    public Employee(int id, String name, String lastname, int phoneNumber, String seniority) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.phoneNumber = phoneNumber;
+        this.seniority = seniority;
+    }
+
 
     // Getters & Setters
     public String getName() {

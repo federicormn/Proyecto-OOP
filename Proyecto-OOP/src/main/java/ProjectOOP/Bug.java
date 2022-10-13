@@ -21,6 +21,7 @@ public class Bug extends Ticket {
         this.title = title;
         this.reporter = reporter;
         this.actualResult = actualResult;
+        assignedTo.setAssociatedBugs(this);
     }
 
     public Bug(){

@@ -14,13 +14,13 @@ public class ExecutedTest extends TestCase {
 
     protected state currentState = state.PENDING;
 
-    public ExecutedTest(TestCase oneTestCase) {
-        executed = true;
-        setTitle(oneTestCase.getTitle());
-        setDescription(oneTestCase.getDescription());
-        setSteps(oneTestCase.getSteps());
-        setCreator(oneTestCase.getCreator());
-        setPriority(oneTestCase.getPriority());
+    public ExecutedTest(TestCase testCase, String build, Employee owner, Bug associatedBug, TestSuite assignedSuit, state currentState) {
+        super(testCase.getTitle(), testCase.getDescription(), testCase.getSteps(), testCase.getCreator(), testCase.getPriority(), testCase.executed, testCase.amountSteps);
+        this.build = build;
+        this.owner = owner;
+        this.associatedBug = associatedBug;
+        this.assignedSuit = assignedSuit;
+        this.currentState = currentState;
     }
 
     // Getters & Setters

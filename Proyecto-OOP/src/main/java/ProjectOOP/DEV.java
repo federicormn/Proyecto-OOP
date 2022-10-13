@@ -8,8 +8,9 @@ public class DEV extends Employee
 {
         private List<Bug> associatedBugs = new ArrayList<Bug>();
 
-        public DEV(){
-        }
+    public DEV(int id, String name, String lastname, int phoneNumber, String seniority) {
+        super(id, name, lastname, phoneNumber, seniority);
+    }
 
 
     // Getters & Setters
