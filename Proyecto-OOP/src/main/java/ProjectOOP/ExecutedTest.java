@@ -99,27 +99,33 @@ public class ExecutedTest extends TestCase{
         return executedString+bug+suite;
     }
 
-//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner, Bug linkedBug, String state)
-//    {
-//        oneTest.setBuild(build);
-//        oneTest.setOwner(owner);
-//
-//        switch (state)
-//        {
-//            case "PASSED":
-//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
-//                break;
-//            case "FAILED":
-//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
-//                break;
-//            case "BLOCKED":
-//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
-//                break;
-//        }
-//        if(oneTest.getCurrentState().toString() == "FAILED")
-//        {
-//            oneTest.setAssociatedBug(linkedBug);
-//        }
-//
-//    }
+
+    // VA TOOODO AFUERA A OTRO METODO ESTOOO -- PUNTO 5)
+
+    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner, Bug linkedBug, String state)
+    {
+        oneTest.setBuild(build);
+        oneTest.setOwner(owner);
+
+        switch (state)
+        {
+            case "PASSED":
+                oneTest.setCurrentState(ExecutedTest.state.PASSED);
+                break;
+            case "FAILED":
+                oneTest.setCurrentState(ExecutedTest.state.FAILED);
+                break;
+            case "BLOCKED":
+                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
+                break;
+        }
+
+        if(oneTest.getCurrentState().toString() == "FAILED")
+        {
+            oneTest.setAssociatedBug(linkedBug);
+        }
+
+    }
+
+
 }

@@ -168,7 +168,7 @@ public class Client {
         System.out.println("\n\n******************** OUTPUTS DEL SISTEMA ********************\n");
         // 1) Se desea tener un método donde me muestre los test cases creados por un específico QA
         System.out.println("Test cases asignados al QA "+ qa1.getName() + ":");
-        qa1.showByQA();
+        qa1.testCasesCreatedByQA();
         TestCaseHelper.showTests(qa1.testCasesCreatedByQA());
 
 

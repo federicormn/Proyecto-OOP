@@ -112,42 +112,27 @@ public class TestSuite
         this.executedTests.add(executedTest);
     }
 
-//    public List<ExecutedTest> createExecutionList(List<TestCase> testsForExecution, List<ExecutedTest> executionList)
-//    {
-//        for (TestCase oneTest:testsForExecution)
-//        {
-//             ExecutedTest createdTest = new ExecutedTest(oneTest);
-//             executionList.add(createdTest);
-//        }
-//        return executionList;
-//    }
-//
-//    public void setExecutionValues(ExecutedTest oneTest,String build, QA owner , String state)
-//    {
-//        oneTest.setBuild(build);
-//        oneTest.setOwner(owner);
-//
-//        switch (state)
-//        {
-//            case "PASSED":
-//                oneTest.setCurrentState(ExecutedTest.state.PASSED);
-//                break;
-//            case "FAILED":
-//                oneTest.setCurrentState(ExecutedTest.state.FAILED);
-//                break;
-//            case "BLOCKED":
-//                oneTest.setCurrentState(ExecutedTest.state.BLOCKED);
-//                break;
-//        }
-//
-//    }
-//
-//    public void executeTests(List<ExecutedTest> executionList)
-//    {
-//        for (ExecutedTest testToExecute:executionList)
-//        {
-//            testToExecute.setExecutionValues();
-//        }
-//    }
-//
+
+        // PUNTO 5) ******************************************************************
+
+    //**METHOD RECIBE LA LISTA DE TEST CREADOS Y HACE UNA COPIA DE EXECUTION TEST POR LA MISMA CANTIDAD
+    public List<ExecutedTest> createExecutionList(List<TestCase> testsForExecution, List<ExecutedTest> executionList)
+    {
+        for (TestCase oneTest:testsForExecution)
+        {
+             ExecutedTest createdTest = new ExecutedTest(oneTest);
+             executionList.add(createdTest);
+        }
+        return executionList;
+    }
+
+    //**METHOD RECIBE LA LISTA DE EXECUTED TEST Y SETTEA LOS VALORES DE LA EJECUCION -- YA DEBEN ESTAR CREADOS
+    public void executeSuit(List<ExecutedTest> executionList)
+    {
+        for (ExecutedTest testToExecute:executionList)
+        {
+            testToExecute.setExecutionValues();
+        }
+    }
+
 }
